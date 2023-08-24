@@ -1,436 +1,567 @@
-<!--
-	作者：Sariay
-	时间：2018-08-26
-	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
--->
 <!DOCTYPE html>
-<html class="html-loading">
-		
 
-<head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      我有一个梦想......
-    
-  </title>
-  <meta name="author" content="John Doe">
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/favicon.ico">
 
-  <!-- css -->
+<html lang="en">
   
-<link rel="stylesheet" href="/css/Annie.css">
 
-  
-  <!-- jquery -->
-	
-<script src="/plugin/jquery/jquery.min.js"></script>
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> 我有一个梦想......</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
 
-<script>
-    const CONFIG_BGIMAGE = {
-      mode: 'normal',
-      normalSrc: '/img/header-bg.jpg',
-      randomYouMax: 110,
-      randomYouSrc: 'https://sariay.github.io/Random-img/',
-	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
-	  preloaderEnable: true
-    }
-	
-    const CONFIG_LEACLOUD_COUNT = {
-      enable: false,
-	  appId: 'AU8...',
-	  appKey: '4cU...',
-	  serverURLs: 'http' || ' '
-    }
-  </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
-
-
-<!-- header -->
-<header class="fixbackground bg-pan-br">
-	<div class="mask">
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<div class="motto text-shadow-pop-left">
-					<p class="content" id="motto-content">Fetching...</p>
-					<p>-<p>
-					<p class="author" id="motto-author">Just a minute...</p>
-				</div>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more" class="scroll-down">
-				<span class="icon-anchor1 animation-scroll-down"></span>
-			</a>
-		</div>
-	</div>
-</header>
-
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><span>0.0%</span></div>
-
-	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			Home
-		
-	</p>
-
-	
-	
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<span class="logo"> 
-			<img src="/img/logo.png">
-		</span>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	
-	<div class="nav-body">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">Home</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
-		</li>
-		
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about" target="_blank">About</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-	
-	<div class="nav-footer">
-		<ul id="global-social">
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-zhihu"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-github"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-sina-weibo "></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-pinterest2"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-instagram"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<span class="icon-twitter"></span>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<span class="icon-rss"></span>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			
-
-
-
-	<!--pure style-->
-	<div class="layout-pure">
-	<div id="layout-pure">	
-		
-			<div class="post" id="post">
-				<div class="post-text">
-					<div class="post-title" id="post-title-index">			
-						
-					</div>
-
-					<div class="post-content">
-						
-							linux软件安装 —— jdk一、软件安装方式1.二进制发布包安装​		软件已经针对具体平台编译打包发布，只要解压，修改配置即可
-2.rpm安装​		软件已经针对redhat的打包管理规范进行打包，使用rpm命令进行安装，&#x3D;&#x3D;不能自行解决库依赖问题&#x3D;&#x3D;
-3.yum安装​		一种在线软件安装方式，本质上还是rpm安装，自动下载安装包并安装，安装过程中自动解决库依赖问题
-4.源码编译安装​		软件以源码工程形式发布，需要自己编译打包
-二、jdk安装步骤1.通过ssh连接工具将jdk安装包上传到linux系统
-2.解压安装包，命令为 tar -zxvf...
-						
-					</div>
-					
-					<div class="post-meta">
-						<span>
-							Posted on
-							<i>
-								
-
-
-
-
-
-
-	<a href="/2023/08/24/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%20------%20jdk/" itemprop="url">
-		<time datetime="2023-08-24T10:45:42.173Z" itemprop="datePublished">
-	  		2023-08-24
-	  </time>
-	</a> 
-
-							</i>
-						</span>
-						
-						
-
-
-
-						
-							<span class="right">      	
-								<a href="/2023/08/24/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%20------%20jdk/" title="View all" external="false">View all</a>	
-							</span>
-						
-					</div>
-				</div>
-			</div>
-		
-	</div>
-
-	
-	<div id="pagination">
-		
-	</div>
-
-	
-
-</div>
-
-
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div id="navigation-show">
-		<ul id="global-nav">
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home" target="_blank">Home</a>
-		</li>
-		
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
-		</li>
-		
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
-		</li>
-		
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
-		</li>
-		
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about" target="_blank">About</a>
-		</li>
-		
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
-		</li>
-		
-	
-
-	
-</ul>
-	</div>
-
-	<div class="copyright">
-		<p>
-			 
-				&copy;2017 - 2023, content by Sariay. All Rights Reserved.
-			
-			
-				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			
-		</p>
-		<p>
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-
-
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
-		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
-
-
-
-<!-- love effect -->
-
-
-<!-- back to top -->
-
-	<div id="totop">
-	<span class="icon-circle-up"></span>
-</div>
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
  
 
-<!-- leancloud -->
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
 
 
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+      
+      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
+          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover2.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">我有一个梦想......</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
 
 
-	
 
+<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['欲买桂花同载酒,终不似,少年游', '愿你一生努力,一生被爱', '我有一个梦想......'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: false
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
   
 
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-linux软件安装 ------ jdk"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/2023/08/24/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%20------%20jdk/" class="article-date">
+  <time datetime="2023-08-24T10:45:42.173Z" itemprop="datePublished">2023-08-24</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="linux软件安装-——-jdk"><a href="#linux软件安装-——-jdk" class="headerlink" title="linux软件安装 —— jdk"></a>linux软件安装 —— jdk</h1><h3 id="一、软件安装方式"><a href="#一、软件安装方式" class="headerlink" title="一、软件安装方式"></a>一、软件安装方式</h3><h4 id="1-二进制发布包安装"><a href="#1-二进制发布包安装" class="headerlink" title="1.二进制发布包安装"></a>1.二进制发布包安装</h4><p>​		软件已经针对具体平台编译打包发布，只要解压，修改配置即可</p>
+<h4 id="2-rpm安装"><a href="#2-rpm安装" class="headerlink" title="2.rpm安装"></a>2.rpm安装</h4><p>​		软件已经针对redhat的打包管理规范进行打包，使用rpm命令进行安装，不能自行解决库依赖问题</p>
+<h4 id="3-yum安装"><a href="#3-yum安装" class="headerlink" title="3.yum安装"></a>3.yum安装</h4><p>​		一种在线软件安装方式，本质上还是rpm安装，自动下载安装包并安装，安装过程中自动解决库依赖问题</p>
+<h4 id="4-源码编译安装"><a href="#4-源码编译安装" class="headerlink" title="4.源码编译安装"></a>4.源码编译安装</h4><p>​		软件以源码工程形式发布，需要自己编译打包</p>
+<h3 id="二、jdk安装步骤"><a href="#二、jdk安装步骤" class="headerlink" title="二、jdk安装步骤"></a>二、jdk安装步骤</h3><h4 id="1-通过ssh连接工具将jdk安装包上传到linux系统"><a href="#1-通过ssh连接工具将jdk安装包上传到linux系统" class="headerlink" title="1.通过ssh连接工具将jdk安装包上传到linux系统"></a>1.通过ssh连接工具将jdk安装包上传到linux系统</h4><p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230824190231258.png" alt="image-20230824190231258"></p>
+<h4 id="2-解压安装包，命令为-tar-zxvf-“安装包名字”-C-usr-local（注意：自己安装的软件一般放在-usr-local下）"><a href="#2-解压安装包，命令为-tar-zxvf-“安装包名字”-C-usr-local（注意：自己安装的软件一般放在-usr-local下）" class="headerlink" title="2.解压安装包，命令为 tar -zxvf “安装包名字” -C &#x2F;usr&#x2F;local（注意：自己安装的软件一般放在&#x2F;usr&#x2F;local下）"></a>2.解压安装包，命令为 tar -zxvf “安装包名字” -C &#x2F;usr&#x2F;local（注意：自己安装的软件一般放在&#x2F;usr&#x2F;local下）</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">tar -zxvf tar -zxvf jdk-<span class="hljs-number">8</span>u171-linux-x64.tar.gz -C <span class="hljs-regexp">/usr/</span>local	<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230824191239994.png" alt="image-20230824191239994"></p>
+<h4 id="3-配置环境变量，用vim命令修改-etc-profile文件-在文件末尾加入如下配置（JDK1-8-0-171为jdk所在文件夹-名字不唯一）"><a href="#3-配置环境变量，用vim命令修改-etc-profile文件-在文件末尾加入如下配置（JDK1-8-0-171为jdk所在文件夹-名字不唯一）" class="headerlink" title="3.配置环境变量，用vim命令修改&#x2F;etc&#x2F;profile文件,在文件末尾加入如下配置（JDK1.8.0_171为jdk所在文件夹 名字不唯一）"></a>3.配置环境变量，用vim命令修改&#x2F;etc&#x2F;profile文件,在文件末尾加入如下配置（JDK1.8.0_171为jdk所在文件夹 名字不唯一）</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">JAVA_HOME</span> =  /usr/local/JDK1.<span class="hljs-number">8.0</span>_171<br><span class="hljs-attr">PATH</span>=<span class="hljs-variable">$JAVA_HOME</span>/bin:<span class="hljs-variable">$PATH</span><br></code></pre></td></tr></table></figure>
 
 
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imagelazyloader/yall.min.js"></script>
-<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/plugin/resizediv/resizediv.js"></script>
-<script src="/js/main.js"></script>
 
-	</body>	
+<h4 id="4-重新加载profile文件，使更改的配置立即生效"><a href="#4-重新加载profile文件，使更改的配置立即生效" class="headerlink" title="4.重新加载profile文件，使更改的配置立即生效"></a>4.重新加载profile文件，使更改的配置立即生效</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">source</span> <span class="hljs-regexp">/etc/</span>profile<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230824191303038.png" alt="image-20230824191303038"></p>
+<h4 id="5-检查是否配置成功，运行如下命令"><a href="#5-检查是否配置成功，运行如下命令" class="headerlink" title="5.检查是否配置成功，运行如下命令"></a>5.检查是否配置成功，运行如下命令</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">java -<span class="hljs-built_in">version</span><br></code></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+  </article>
+  
+
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2023
+        <i class="ri-heart-fill heart_icon"></i> John Doe
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="我有一个梦想......"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
 </html>
