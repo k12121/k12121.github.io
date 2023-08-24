@@ -53,7 +53,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-linux软件安装------tomcat"
+  id="post-test"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -62,15 +62,15 @@
   <div class="article-inner">
      
     <div class="article-meta">
-      <a href="/2023/08/24/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/" class="article-date">
-  <time datetime="2023-08-24T12:12:59.837Z" itemprop="datePublished">2023-08-24</time>
+      <a href="/2023/08/24/test/" class="article-date">
+  <time datetime="2023-08-24T12:23:43.348Z" itemprop="datePublished">2023-08-24</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">261</span>
+            <span class="post-count">1</span>
         </span>
     </span>
 
@@ -86,34 +86,15 @@
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="linux软件安装——tomcat"><a href="#linux软件安装——tomcat" class="headerlink" title="linux软件安装——tomcat"></a>linux软件安装——tomcat</h1><span id="more"></span>
+  <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">test</span><br><span class="hljs-keyword"></span><br></code></pre></td></tr></table></figure>
 
-<h3 id="一、操作步骤"><a href="#一、操作步骤" class="headerlink" title="一、操作步骤"></a>一、操作步骤</h3><h4 id="1-使用ssh连接工具将tomcat二进制发布包上传到linux"><a href="#1-使用ssh连接工具将tomcat二进制发布包上传到linux" class="headerlink" title="1.使用ssh连接工具将tomcat二进制发布包上传到linux"></a>1.使用ssh连接工具将tomcat二进制发布包上传到linux</h4><p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230824195327539.png" alt="image-20230824195327539"></p>
-<h4 id="2-解压安装包-命令如下"><a href="#2-解压安装包-命令如下" class="headerlink" title="2.解压安装包 命令如下"></a>2.解压安装包 命令如下</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tar</span> -zxvf apache-tomcat-<span class="hljs-number">7</span>.<span class="hljs-number">0</span>.<span class="hljs-number">57</span>.tar.gz -C /usr/local<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-进入tomcat的bin目录启动服务，命令如下"><a href="#3-进入tomcat的bin目录启动服务，命令如下" class="headerlink" title="3.进入tomcat的bin目录启动服务，命令如下"></a>3.进入tomcat的bin目录启动服务，命令如下</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sh</span> start.<span class="hljs-keyword">sh</span>   或者   ./startup.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="二、验证tomcat是否启动成功"><a href="#二、验证tomcat是否启动成功" class="headerlink" title="二、验证tomcat是否启动成功"></a>二、验证tomcat是否启动成功</h3><h4 id="1-通过查看启动日志的方式查看是否启动成功，命令如下："><a href="#1-通过查看启动日志的方式查看是否启动成功，命令如下：" class="headerlink" title="1.通过查看启动日志的方式查看是否启动成功，命令如下："></a>1.通过查看启动日志的方式查看是否启动成功，命令如下：</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">more <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/apache-tomcat-7.0.57/</span>logs/catalina.out<br>tail <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/apache-tomcat-7.0.57/</span>logs/catalina.out<br></code></pre></td></tr></table></figure>
-
-<h4 id="2-通过查看进程的方式查看是否启动成功，命令如下："><a href="#2-通过查看进程的方式查看是否启动成功，命令如下：" class="headerlink" title="2.通过查看进程的方式查看是否启动成功，命令如下："></a>2.通过查看进程的方式查看是否启动成功，命令如下：</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">ps</span> -ef | <span class="hljs-keyword">grep</span> tomcat   （通过配合管道符查看特定命令）<br></code></pre></td></tr></table></figure>
-
-<h5 id="启动后结果："><a href="#启动后结果：" class="headerlink" title="启动后结果："></a>启动后结果：</h5><p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230824200249517.png" alt="image-20230824200249517"></p>
-<h3 id="三、停止tomcat方法"><a href="#三、停止tomcat方法" class="headerlink" title="三、停止tomcat方法"></a>三、停止tomcat方法</h3><h4 id="1-运行tomcat的bin目录中提供的停止服务的脚本文件-shutdown-sh"><a href="#1-运行tomcat的bin目录中提供的停止服务的脚本文件-shutdown-sh" class="headerlink" title="1.运行tomcat的bin目录中提供的停止服务的脚本文件 &#x3D;&#x3D;&#x3D;&#x3D;&gt; shutdown.sh"></a>1.运行tomcat的bin目录中提供的停止服务的脚本文件 &#x3D;&#x3D;&#x3D;&#x3D;&gt; shutdown.sh</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">sh</span> shutdown.<span class="hljs-keyword">sh</span>   或者   ./shutdown.<span class="hljs-keyword">sh</span><br></code></pre></td></tr></table></figure>
-
-<h4 id="2-通过结束进程停止tomcat"><a href="#2-通过结束进程停止tomcat" class="headerlink" title="2.通过结束进程停止tomcat"></a>2.通过结束进程停止tomcat</h4><h5 id="a-通过-ps-ef-grep-tomcat-查看tomcat进程号"><a href="#a-通过-ps-ef-grep-tomcat-查看tomcat进程号" class="headerlink" title="a.通过 ps-ef | grep tomcat 查看tomcat进程号"></a>a.通过 ps-ef | grep tomcat 查看tomcat进程号</h5><p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230824201059491.png" alt="image-20230824201059491"></p>
-<h5 id="b-通过kill-9-7742杀死进程-（kill-是linux中用于结束进程的命令-9表示强制结束）"><a href="#b-通过kill-9-7742杀死进程-（kill-是linux中用于结束进程的命令-9表示强制结束）" class="headerlink" title="b.通过kill     -9   7742杀死进程 （kill 是linux中用于结束进程的命令 -9表示强制结束）"></a>b.通过kill     -9   7742杀死进程 （kill 是linux中用于结束进程的命令 -9表示强制结束）</h5> 
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -183,7 +164,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/08/24/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/08/24/test/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -194,17 +175,8 @@
    
   <nav class="article-nav">
     
-      <a href="/2023/08/24/test/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            (no title)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/08/24/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%20------%20jdk/" class="article-nav-link">
+      <a href="/2023/08/24/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title"></div>
       </a>
