@@ -6,12 +6,17 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hello World - 我有一个梦想......</title>
+  <title> - 我有一个梦想......</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  <meta name="description" content="Welcome to Hexo! This is yo...">
+  <meta name="description" content="表单：
+    一、表单组成:
+
+
+
+     表单域...">
   <meta name="author" content="John Doe">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -139,28 +144,6 @@
     
 
 
-  <nav class="navbar">
-    <div class="left">
-      
-        <i class="iconfont iconhome j-navbar-back-home"></i>
-      
-      
-        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
-      
-      
-        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-      
-      
-    </div>
-    <div class="center">Hello World</div>
-    <div class="right">
-      <i class="iconfont iconmenu j-navbar-menu"></i>
-    </div>
-    
-      <div id="qrcode-navbar"></div>
-    
-  </nav>
-
   
   
 
@@ -196,30 +179,105 @@
     <section class="head">
   <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
   <div class="head-mask">
-    <h1 class="head-title">Hello World</h1>
+    <h1 class="head-title"></h1>
     <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>August 20, 2023</span>
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>August 24, 2023</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>444</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1537</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
         
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+        <h2 id="表单："><a href="#表单：" class="headerlink" title="表单："></a>表单：</h2><h4>
+    一、表单组成:
+</h4>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<ol>
+    <li> 表单域 </li>
+    <li> 表单控件(表单元素) </li>
+    <li> 提示信息 </li>
+</ol>
+![image-20230824155037034](表单.assets/image-20230824155037034.png)
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<h4>
+    二、表单控件(type属性文本框和密码锁):
+</h4>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<ol>
+    <li>input输入表单元素</li>
+    <li>select下拉表单元素</li>
+    <li>textarea文本域元素</li>
+</ol>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>input标签里面添加不同的属性会有不同的效果:</p>
+<p><img    class="lazyload" data-original="/image-20221221115451044.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="   ><span class="image-caption">image-20221221115451044</span></p>
+<h6 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下:"></a>代码如下:</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- text是文本框 用户可以输入任何文字 --&gt;</span><br>        用户名<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- password是密码框 用户可以输入密码且会加密显示 --&gt;</span><br>        密码:<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;password&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h6 id="代码效果"><a href="#代码效果" class="headerlink" title="代码效果:"></a><em>代码效果:</em></h6><form>
+        <!-- text是文本框 用户可以输入任何文字 -->
+        用户名<input type="text"><br>
+        <!-- password是密码框 用户可以输入密码且会加密显示 -->
+        密码:<input type="password">
+</form>
+
+
+
+<h3 id="三、表单控件-选择"><a href="#三、表单控件-选择" class="headerlink" title="三、表单控件(选择):"></a>三、表单控件(选择):</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- radio是多选按钮 可以实现多选1 --&gt;</span><br>        性别: 男 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span>&gt;</span> 女 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>        <span class="hljs-comment">&lt;!-- checkbox是复选按钮 可以实现多种选择 --&gt;</span><br>        爱好:跑步<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span>&gt;</span> 羽毛球<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span>&gt;</span> 篮球<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><em>代码效果:</em></p>
+<form>
+        <!-- radio是多选按钮 可以实现多选1 -->
+        性别: 男 <input type="radio"> 女 <input type="radio"> <br>
+        <!-- checkbox是复选按钮 可以实现多种选择 -->
+        爱好:跑步<input type="checkbox"> 羽毛球<input type="checkbox"> 篮球<input type="checkbox">
+    </form>
+### 三、表单控件(name和value属性):
+
+<p>name属性:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>     <span class="hljs-comment">&lt;!--  name 是表单元素名字 性别单选按钮必须要有相同的名字才能实现多选1 --&gt;</span><br>     性别: 男 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sex&quot;</span>&gt;</span> 女 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sex&quot;</span>&gt;</span> <br> <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>效果如下(此时可以多选1):</p>
+<form>
+        <!-- radio是多选按钮 可以实现多选1 -->
+        性别: 男 <input type="radio" name="sex"> 女 <input type="radio" name="sex"> <br>
+</form>
+
+
+
+<p>value属性:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>     <span class="hljs-comment">&lt;!--  name 是表单元素名字 性别单选按钮必须要有相同的名字才能实现多选1 --&gt;</span><br>     用户名: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;usename&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;请输入用户名&quot;</span>&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>效果:</p>
+ <form>
+        <!--  name 是表单元素名字 性别单选按钮必须要有相同的名字才能实现多选1 -->
+        用户名: <input type="text" name="usename" value="请输入用户名"> 
+   </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       </section>
       <section class="extra">
@@ -227,7 +285,7 @@
           <ul class="copyright">
   
     <li><strong>本文作者：</strong>John Doe</li>
-    <li><strong>本文链接：</strong><a href="http://example.com/2023/08/20/hello-world/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;08&#x2F;20&#x2F;hello-world&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;08&#x2F;20&#x2F;hello-world&#x2F;index.html</a></li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2023/08/24/%E8%A1%A8%E5%8D%95/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;08&#x2F;24&#x2F;%E8%A1%A8%E5%8D%95&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;08&#x2F;24&#x2F;%E8%A1%A8%E5%8D%95&#x2F;index.html</a></li>
     <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
   
 </ul>
@@ -246,8 +304,8 @@
         
         
   <nav class="nav">
-    <a href="/2023/08/24/%E8%A1%A8%E5%8D%95/"><i class="iconfont iconleft"></i></a>
     <a></a>
+    <a href="/2023/08/20/hello-world/">Hello World<i class="iconfont iconright"></i></a>
   </nav>
 
       </section>
@@ -260,7 +318,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%EF%BC%9A"><span class="toc-text">表单：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6-%E9%80%89%E6%8B%A9"><span class="toc-text">三、表单控件(选择):</span></a></li></ol></li></ol>
   </aside>
 
         
