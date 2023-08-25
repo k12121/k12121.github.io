@@ -154,7 +154,7 @@
     
     
     <article
-  id="post-linux安装软件------mysq"
+  id="post-linux安装软件------mysql"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -163,41 +163,18 @@
   <div class="article-inner">
      
     <div class="article-meta">
-      <a href="/2023/08/25/linux%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6------mysq/" class="article-date">
+      <a href="/2023/08/25/linux%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6------mysql/" class="article-date">
   <time datetime="2023-08-25T00:03:43.981Z" itemprop="datePublished">2023-08-25</time>
 </a>    
     </div>
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="linux安装软件——mysq"><a href="#linux安装软件——mysq" class="headerlink" title="linux安装软件——mysq"></a>linux安装软件——mysq</h1><h3 id="1-检测当前系统中是否安装mysql数据库-命令如下："><a href="#1-检测当前系统中是否安装mysql数据库-命令如下：" class="headerlink" title="1.检测当前系统中是否安装mysql数据库,命令如下："></a>1.检测当前系统中是否安装mysql数据库,命令如下：</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs vim">rpm -<span class="hljs-keyword">qa</span><br>rpm -<span class="hljs-keyword">qa</span> | <span class="hljs-keyword">grep</span> mysql<br>rpm -<span class="hljs-keyword">qa</span> | <span class="hljs-keyword">grep</span> mariadb<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230825075115445.png" alt="image-20230825075115445"></p>
-<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230825075135618.png" alt="image-20230825075135618"></p>
-<h4 id="ps-RPM是软件包管理器，是红毛linux用于管理和安装软件的工具-如果当前系统中已经安装有mysql数据库，安装将失败。-centos自带mariable数据库，它会和mysql数据库冲突"><a href="#ps-RPM是软件包管理器，是红毛linux用于管理和安装软件的工具-如果当前系统中已经安装有mysql数据库，安装将失败。-centos自带mariable数据库，它会和mysql数据库冲突" class="headerlink" title="ps:RPM是软件包管理器，是红毛linux用于管理和安装软件的工具  如果当前系统中已经安装有mysql数据库，安装将失败。 centos自带mariable数据库，它会和mysql数据库冲突"></a>ps:RPM是软件包管理器，是红毛linux用于管理和安装软件的工具  如果当前系统中已经安装有mysql数据库，安装将失败。 centos自带mariable数据库，它会和mysql数据库冲突</h4><h3 id="2-卸载已安装的冲突软件，命令如下："><a href="#2-卸载已安装的冲突软件，命令如下：" class="headerlink" title="2.卸载已安装的冲突软件，命令如下："></a>2.卸载已安装的冲突软件，命令如下：</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">rpm</span> -e --nsodeps <span class="hljs-string">&quot;软件名称&quot;</span><br><span class="hljs-attribute">rpm</span> -e --nsodeps mariable-libs-<span class="hljs-number">5</span>.<span class="hljs-number">5</span>.<span class="hljs-number">60</span>-<span class="hljs-number">1</span>.el7_5.x86_64<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230825075713218.png" alt="image-20230825075713218"></p>
-<h3 id="3-将mysql安装包上传并解压"><a href="#3-将mysql安装包上传并解压" class="headerlink" title="3.将mysql安装包上传并解压"></a>3.将mysql安装包上传并解压</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">mkdir /usr/local/mysql<br>tar -zxvf mysql-<span class="hljs-number">5.7</span>.<span class="hljs-number">25</span>-<span class="hljs-number">1</span><span class="hljs-selector-class">.el7</span><span class="hljs-selector-class">.x86_64</span><span class="hljs-selector-class">.rpm-bundle</span><span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span> -C /usr/local/mysql<br></code></pre></td></tr></table></figure>
-
-<h4 id="ps：解压后得到6个rpm文件"><a href="#ps：解压后得到6个rpm文件" class="headerlink" title="ps：解压后得到6个rpm文件"></a>ps：解压后得到6个rpm文件</h4><p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230825080006512.png" alt="image-20230825080006512"></p>
-<h3 id="4-安装mysql，按照顺序安装rpm包"><a href="#4-安装mysql，按照顺序安装rpm包" class="headerlink" title="4.安装mysql，按照顺序安装rpm包"></a>4.安装mysql，按照顺序安装rpm包</h3><p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230825080133196.png" alt="image-20230825080133196"></p>
-<h4 id="ps：安装过程中提示缺少net-tools依赖，使用yum安装，在安装过程中，可以通过指令升级现有软件以及系统内核，升级命令如下："><a href="#ps：安装过程中提示缺少net-tools依赖，使用yum安装，在安装过程中，可以通过指令升级现有软件以及系统内核，升级命令如下：" class="headerlink" title="ps：安装过程中提示缺少net-tools依赖，使用yum安装，在安装过程中，可以通过指令升级现有软件以及系统内核，升级命令如下："></a>ps：安装过程中提示缺少net-tools依赖，使用yum安装，在安装过程中，可以通过指令升级现有软件以及系统内核，升级命令如下：</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yum update</span><br></code></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+  <h1 id="linux安装软件——mysq"><a href="#linux安装软件——mysq" class="headerlink" title="linux安装软件——mysq"></a>linux安装软件——mysq</h1> 
+      <a class="article-more-link" href="/2023/08/25/linux%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6------mysql/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
