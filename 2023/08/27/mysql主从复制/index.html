@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827172232464.png">
 <meta property="og:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827172457561.png">
 <meta property="article:published_time" content="2023-08-27T09:11:20.171Z">
-<meta property="article:modified_time" content="2023-08-27T09:25:54.478Z">
+<meta property="article:modified_time" content="2023-08-27T09:42:32.095Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827165710088.png">
@@ -235,8 +235,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-08-27 17:25:54</span>
-            <span class="mobile">2023-08-27 17:25:54</span>
+            <span class="desktop">2023-08-27 17:42:32</span>
+            <span class="mobile">2023-08-27 17:42:32</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -262,33 +262,58 @@
         <div class="article-content markdown-body">
             <h1 id="mysql主从复制"><a href="#mysql主从复制" class="headerlink" title="mysql主从复制"></a>mysql主从复制</h1><span id="more"></span>
 
-<h3 id="一、主库"><a href="#一、主库" class="headerlink" title="一、主库"></a>一、主库</h3><h4 id="1-修改mysql数据库的配置文件-etc-my-cnf，在头部文件加入以下配置："><a href="#1-修改mysql数据库的配置文件-etc-my-cnf，在头部文件加入以下配置：" class="headerlink" title="1.修改mysql数据库的配置文件 &#x2F;etc&#x2F;my.cnf，在头部文件加入以下配置："></a>1.修改mysql数据库的配置文件 &#x2F;etc&#x2F;my.cnf，在头部文件加入以下配置：</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">log-bin</span>=mysql-bin  <span class="hljs-comment">#[必须]启用二进制日志</span><br><span class="hljs-attr">server-id</span>=<span class="hljs-number">100</span>  <span class="hljs-comment">#[必须]服务器唯一id</span><br></code></pre></td></tr></table></figure>
+<h3 id="一、主库"><a href="#一、主库" class="headerlink" title="一、主库"></a>一、主库</h3><h4 id="1-修改mysql数据库的配置文件-etc-my-cnf，在头部文件加入以下配置："><a href="#1-修改mysql数据库的配置文件-etc-my-cnf，在头部文件加入以下配置：" class="headerlink" title="1.修改mysql数据库的配置文件 &#x2F;etc&#x2F;my.cnf，在头部文件加入以下配置："></a>1.修改mysql数据库的配置文件 &#x2F;etc&#x2F;my.cnf，在头部文件加入以下配置：</h4><div class="highlight-container" data-rel="Ini"><figure class="iseeu highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">log-bin</span>=mysql-bin  <span class="hljs-comment">#[必须]启用二进制日志</span><br><span class="hljs-attr">server-id</span>=<span class="hljs-number">100</span>  <span class="hljs-comment">#[必须]服务器唯一id</span><br></code></pre></td></tr></table></figure></div>
 
-<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827165710088.png" alt="image-20230827165710088"></p>
-<h4 id="2-重启mysql服务"><a href="#2-重启mysql服务" class="headerlink" title="2.重启mysql服务"></a>2.重启mysql服务</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart mysqld</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-登录mysql，执行赋予权限"><a href="#3-登录mysql，执行赋予权限" class="headerlink" title="3.登录mysql，执行赋予权限"></a>3.登录mysql，执行赋予权限</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">GRANT REPLICATION SLAVE ON *.* to &#x27;这里是用户名&#x27;@&#x27;%&#x27;identified by &#x27;Root@123456&#x27;<br></code></pre></td></tr></table></figure>
-
-<h5 id="ps-上面的sql是创建了一个用户，密码为Root-123456-并且给用户授予REPLICATION-SLAVE权限。常用于建立复制时所需要用到的用户权限，也就是slave权限必须被master授权具有该权限的用户，才能通过该用户复制。-表示从任何主机连接-表示所有数据库和所有表"><a href="#ps-上面的sql是创建了一个用户，密码为Root-123456-并且给用户授予REPLICATION-SLAVE权限。常用于建立复制时所需要用到的用户权限，也就是slave权限必须被master授权具有该权限的用户，才能通过该用户复制。-表示从任何主机连接-表示所有数据库和所有表" class="headerlink" title="ps:上面的sql是创建了一个用户，密码为Root@123456,并且给用户授予REPLICATION SLAVE权限。常用于建立复制时所需要用到的用户权限，也就是slave权限必须被master授权具有该权限的用户，才能通过该用户复制。 %表示从任何主机连接   *.*表示所有数据库和所有表"></a>ps:上面的sql是创建了一个用户，密码为Root@123456,并且给用户授予REPLICATION SLAVE权限。常用于建立复制时所需要用到的用户权限，也就是slave权限必须被master授权具有该权限的用户，才能通过该用户复制。 %表示从任何主机连接   <code>*.*</code>表示所有数据库和所有表</h5><h4 id="4-在mysql中执行以下语句："><a href="#4-在mysql中执行以下语句：" class="headerlink" title="4.在mysql中执行以下语句："></a>4.在mysql中执行以下语句：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">show master status<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827170810410.png" alt="image-20230827170810410"></p>
-<h5 id="ps：其中，File表示日志文件名称，Position表示日志文件位置-当前可以不用再进行任何操作了，因为该文件名和我i之会因为操作发生改变，俄而再随后的从库配置需要用到这些信息。"><a href="#ps：其中，File表示日志文件名称，Position表示日志文件位置-当前可以不用再进行任何操作了，因为该文件名和我i之会因为操作发生改变，俄而再随后的从库配置需要用到这些信息。" class="headerlink" title="ps：其中，File表示日志文件名称，Position表示日志文件位置 当前可以不用再进行任何操作了，因为该文件名和我i之会因为操作发生改变，俄而再随后的从库配置需要用到这些信息。"></a>ps：其中，File表示日志文件名称，Position表示日志文件位置 当前可以不用再进行任何操作了，因为该文件名和我i之会因为操作发生改变，俄而再随后的从库配置需要用到这些信息。</h5><h3 id="二、从库"><a href="#二、从库" class="headerlink" title="二、从库"></a>二、从库</h3><h4 id="1-在-etc-mycnf文件里面添加以下代码："><a href="#1-在-etc-mycnf文件里面添加以下代码：" class="headerlink" title="1.在 &#x2F;etc&#x2F;mycnf文件里面添加以下代码："></a>1.在 &#x2F;etc&#x2F;mycnf文件里面添加以下代码：</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">server-id</span>=<span class="hljs-number">101</span>  <span class="hljs-comment">#[必须]服务器唯一id</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827171715584.png" alt="image-20230827171715584"></p>
-<h4 id="2-重启mysql服务-1"><a href="#2-重启mysql服务-1" class="headerlink" title="2.重启mysql服务"></a>2.重启mysql服务</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart mysqld</span><br></code></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827165710088.png"
+                      alt="image-20230827165710088"
+                ></p>
+<h4 id="2-重启mysql服务"><a href="#2-重启mysql服务" class="headerlink" title="2.重启mysql服务"></a>2.重启mysql服务</h4><div class="highlight-container" data-rel="Ebnf"><figure class="iseeu highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart mysqld</span><br></code></pre></td></tr></table></figure></div>
 
 
 
-<h4 id="3-登录mysql-执行以下代码："><a href="#3-登录mysql-执行以下代码：" class="headerlink" title="3.登录mysql,执行以下代码："></a>3.登录mysql,执行以下代码：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">change master to master_host=&#x27;192.168.213.130&#x27;,master_user=&#x27;slaveUser&#x27;,master_password=&#x27;Root@123456&#x27;,master_log_file=&#x27;mysql-bin.000001&#x27;,master_log_pos=439;<br></code></pre></td></tr></table></figure>
+<h4 id="3-登录mysql，执行赋予权限"><a href="#3-登录mysql，执行赋予权限" class="headerlink" title="3.登录mysql，执行赋予权限"></a>3.登录mysql，执行赋予权限</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">GRANT REPLICATION SLAVE ON *.* to &#x27;这里是用户名&#x27;@&#x27;%&#x27;identified by &#x27;Root@123456&#x27;<br></code></pre></td></tr></table></figure></div>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">stop slave;   报错时执行<br>reset slave;  报错时执行<br>start slave;<br></code></pre></td></tr></table></figure>
+<h5 id="ps-上面的sql是创建了一个用户，密码为Root-123456-并且给用户授予REPLICATION-SLAVE权限。常用于建立复制时所需要用到的用户权限，也就是slave权限必须被master授权具有该权限的用户，才能通过该用户复制。-表示从任何主机连接-表示所有数据库和所有表"><a href="#ps-上面的sql是创建了一个用户，密码为Root-123456-并且给用户授予REPLICATION-SLAVE权限。常用于建立复制时所需要用到的用户权限，也就是slave权限必须被master授权具有该权限的用户，才能通过该用户复制。-表示从任何主机连接-表示所有数据库和所有表" class="headerlink" title="ps:上面的sql是创建了一个用户，密码为Root@123456,并且给用户授予REPLICATION SLAVE权限。常用于建立复制时所需要用到的用户权限，也就是slave权限必须被master授权具有该权限的用户，才能通过该用户复制。 %表示从任何主机连接   *.*表示所有数据库和所有表"></a>ps:上面的sql是创建了一个用户，密码为Root@123456,并且给用户授予REPLICATION SLAVE权限。常用于建立复制时所需要用到的用户权限，也就是slave权限必须被master授权具有该权限的用户，才能通过该用户复制。 %表示从任何主机连接   <code>*.*</code>表示所有数据库和所有表</h5><h4 id="4-在mysql中执行以下语句："><a href="#4-在mysql中执行以下语句：" class="headerlink" title="4.在mysql中执行以下语句："></a>4.在mysql中执行以下语句：</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">show master status<br></code></pre></td></tr></table></figure></div>
 
-<h5 id="ps-执行start-slave-报错可以参考以下："><a href="#ps-执行start-slave-报错可以参考以下：" class="headerlink" title="ps:  执行start slave; 报错可以参考以下："></a>ps:  执行start slave; 报错可以参考以下：</h5><p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827172232464.png" alt="image-20230827172232464"></p>
-<h3 id="4-登录mysql数据库，执行sql，查看从库状态"><a href="#4-登录mysql数据库，执行sql，查看从库状态" class="headerlink" title="4.登录mysql数据库，执行sql，查看从库状态"></a>4.登录mysql数据库，执行sql，查看从库状态</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">show slave status;<br></code></pre></td></tr></table></figure>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827170810410.png"
+                      alt="image-20230827170810410"
+                ></p>
+<h5 id="ps：其中，File表示日志文件名称，Position表示日志文件位置-当前可以不用再进行任何操作了，因为该文件名和我i之会因为操作发生改变，俄而再随后的从库配置需要用到这些信息。"><a href="#ps：其中，File表示日志文件名称，Position表示日志文件位置-当前可以不用再进行任何操作了，因为该文件名和我i之会因为操作发生改变，俄而再随后的从库配置需要用到这些信息。" class="headerlink" title="ps：其中，File表示日志文件名称，Position表示日志文件位置 当前可以不用再进行任何操作了，因为该文件名和我i之会因为操作发生改变，俄而再随后的从库配置需要用到这些信息。"></a>ps：其中，File表示日志文件名称，Position表示日志文件位置 当前可以不用再进行任何操作了，因为该文件名和我i之会因为操作发生改变，俄而再随后的从库配置需要用到这些信息。</h5><h3 id="二、从库"><a href="#二、从库" class="headerlink" title="二、从库"></a>二、从库</h3><h4 id="1-在-etc-mycnf文件里面添加以下代码："><a href="#1-在-etc-mycnf文件里面添加以下代码：" class="headerlink" title="1.在 &#x2F;etc&#x2F;mycnf文件里面添加以下代码："></a>1.在 &#x2F;etc&#x2F;mycnf文件里面添加以下代码：</h4><div class="highlight-container" data-rel="Ini"><figure class="iseeu highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">server-id</span>=<span class="hljs-number">101</span>  <span class="hljs-comment">#[必须]服务器唯一id</span><br></code></pre></td></tr></table></figure></div>
 
-<p><img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827172457561.png" alt="image-20230827172457561"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827171715584.png"
+                      alt="image-20230827171715584"
+                ></p>
+<h4 id="2-重启mysql服务-1"><a href="#2-重启mysql服务-1" class="headerlink" title="2.重启mysql服务"></a>2.重启mysql服务</h4><div class="highlight-container" data-rel="Ebnf"><figure class="iseeu highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl restart mysqld</span><br></code></pre></td></tr></table></figure></div>
+
+
+
+<h4 id="3-登录mysql-执行以下代码："><a href="#3-登录mysql-执行以下代码：" class="headerlink" title="3.登录mysql,执行以下代码："></a>3.登录mysql,执行以下代码：</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">change master to master_host=&#x27;192.168.213.130&#x27;,master_user=&#x27;slaveUser&#x27;,master_password=&#x27;Root@123456&#x27;,master_log_file=&#x27;mysql-bin.000001&#x27;,master_log_pos=439;<br></code></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">stop slave;   报错时执行<br>reset slave;  报错时执行<br>start slave;<br></code></pre></td></tr></table></figure></div>
+
+<h5 id="ps-执行start-slave-报错可以参考以下："><a href="#ps-执行start-slave-报错可以参考以下：" class="headerlink" title="ps:  执行start slave; 报错可以参考以下："></a>ps:  执行start slave; 报错可以参考以下：</h5><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827172232464.png"
+                      alt="image-20230827172232464"
+                ></p>
+<h3 id="4-登录mysql数据库，执行sql，查看从库状态"><a href="#4-登录mysql数据库，执行sql，查看从库状态" class="headerlink" title="4.登录mysql数据库，执行sql，查看从库状态"></a>4.登录mysql数据库，执行sql，查看从库状态</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">show slave status;<br></code></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230827172457561.png"
+                      alt="image-20230827172457561"
+                ></p>
 <h5 id="此时mysql主从复制配置成功"><a href="#此时mysql主从复制配置成功" class="headerlink" title="此时mysql主从复制配置成功"></a>此时mysql主从复制配置成功</h5>
         </div>
 
@@ -301,7 +326,7 @@
         <li><strong>Created at:</strong> 2023-08-27 17:11:20</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-08-27 17:25:54
+                <strong>Updated at:</strong> 2023-08-27 17:42:32
             </li>
         
         <li>
