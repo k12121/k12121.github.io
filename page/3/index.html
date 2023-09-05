@@ -13,14 +13,14 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/"/>
+    <link rel="canonical" href="http://example.com/page/3/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
         <meta property="og:type" content="website">
 <meta property="og:title" content="我有一个梦想......">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/page/3/index.html">
 <meta property="og:site_name" content="我有一个梦想......">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="xkxk1212">
@@ -103,58 +103,36 @@
     
 
     
-        
-    <style>
-        .home-banner-container {
-            background: transparent !important;
-        }
+        <style>
+    .home-article-item,
+    .sidebar-links,
+    .sidebar-content,
+    a.page-number,
+    a.extend,
+    .sidebar-links .links:hover,
+    .right-bottom-tools,
+    footer.footer {
+        background-color: var(--background-color-transparent-80) !important;
+    }
+    .right-bottom-tools:hover,
+    a.page-number:hover,
+    a.extend:hover {
+        background-color: var(--primary-color) !important;
+    }
+    .site-info,
+    .home-article-sticky-label {
+        background-color: var(--background-color-transparent-15) !important;
+    }
+    .home-article-sticky-label {
+        backdrop-filter: none !important;
+    }
+    .home-banner-background {
+        filter: blur(15px);
+    }
+</style>
 
-        .home-article-item,
-        .sidebar-links,
-        .sidebar-content,
-        a.page-number,
-        a.extend,
-        .sidebar-links .links:hover,
-        .right-bottom-tools,
-        footer.footer {
-            background-color: var(--background-color-transparent-80) !important;
-        }
-
-        .right-bottom-tools:hover,
-        a.page-number:hover,
-        a.extend:hover {
-            background-color: var(--primary-color) !important;
-        }
-
-        .site-info,
-        .home-article-sticky-label {
-            background-color: var(--background-color-transparent-15) !important;
-        }
-
-        .home-article-sticky-label {
-            backdrop-filter: none !important;
-        }
-    </style>
-
-    <div class="home-banner-background transition-fade">
-    </div>
-
-
-<div class="home-banner-container flex-center transition-fade">
-    <div class="content flex-center">
-        <div class="description"
-        
-        >
-            欲买桂花同载酒，终不似，少年游
-            
-            
-                <p><i id="subtitle"></i></p>
-            
-        </div>
-        
-    </div>
+<div class="home-banner-background">
 </div>
-
 
 
     
@@ -165,7 +143,7 @@
         <div class="main-content-header">
             <header class="navbar-container">
     
-    <div class="navbar-content has-home-banner">
+    <div class="navbar-content">
         <div class="left">
             
             <a class="logo-title" href="/">
@@ -312,31 +290,33 @@
                 
                 
                     <div class="home-article-thumbnail">
-                        <a href="/2023/09/04/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84005------session%E5%85%B1%E4%BA%AB%E7%9A%84%E9%9B%86%E7%BE%A4%E9%97%AE%E9%A2%98/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230905104922709.png" alt="黑马点评------session共享问题分析" />
+                        <a href="/2023/08/27/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230830151459637.png" alt="mysql主从复制" />
                         </a>
                     </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/09/04/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84005------session%E5%85%B1%E4%BA%AB%E7%9A%84%E9%9B%86%E7%BE%A4%E9%97%AE%E9%A2%98/">
-                        黑马点评------session共享问题分析
+                    <a href="/2023/08/27/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+                        mysql主从复制
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        一、在使用session进行业务开发时，多台Tomcat并不共享session存储空间，当切换到不同tomcat服务时会导致数据丢失问题1、这里是模式图
-2、在早期，Tomcat提供了处理方案，就是在不同的tomcat服务器之间提供拷贝功能，以达到数...
+                        一、主库1.修改mysql数据库的配置文件 &#x2F;etc&#x2F;my.cnf，在头部文件加入以下配置：12log-bin=mysql-bin  #[必须]启用二进制日志server-id=100  #[必须]服务器唯一id
+
+
+2.重启my...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Sep 04 2023 17:57:42 GMT+0800">
+            <span class="home-article-date" data-date="Sun Aug 27 2023 18:09:21 GMT+0800">
                 
-                    2023-09-04
+                    2023-08-27
                 
             </span>
         </span>
@@ -349,17 +329,7 @@
                     
                         
                         <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esesson%E5%AE%9E%E7%8E%B0/">基于sesson实现</a>&nbsp;
+                            <a href="/categories/MySQL/">MySQL</a>&nbsp;
                         </li>
                     
                     
@@ -370,296 +340,7 @@
         
     </div>
 
-    <a href="/2023/09/04/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84005------session%E5%85%B1%E4%BA%AB%E7%9A%84%E9%9B%86%E7%BE%A4%E9%97%AE%E9%A2%98/">阅读全文<span class="seo-reader-text">黑马点评------session共享问题分析</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/09/04/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84004------%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230904175202272.png" alt="黑马点评------隐藏用户敏感信息" />
-                        </a>
-                    </div>
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/09/04/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84004------%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF/">
-                        黑马点评------隐藏用户敏感信息
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        一、在校验用户的返回数据的时候出现问题
-ps:在进行用户校验过程中，我们将用户身份验证完毕以后，会见用户信息返回给前端，但是敏感信息也返回了，所以创建UserDto类，专门用于对用户信息的返回，以便于对用户敏感信息进行隐藏二、代码实现以及更改1、Us...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Sep 04 2023 17:21:51 GMT+0800">
-                
-                    2023-09-04
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esesson%E5%AE%9E%E7%8E%B0/">基于sesson实现</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-    </div>
-
-    <a href="/2023/09/04/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84004------%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF/">阅读全文<span class="seo-reader-text">黑马点评------隐藏用户敏感信息</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/09/03/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84003------%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%A3%80%E9%AA%8C%E6%8B%A6%E6%88%AA%E5%99%A8/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230903185519481.png" alt="黑马点评------实现登录检验拦截器" />
-                        </a>
-                    </div>
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/09/03/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84003------%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%A3%80%E9%AA%8C%E6%8B%A6%E6%88%AA%E5%99%A8/">
-                        黑马点评------实现登录检验拦截器
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        一、模式图
-二、业务流程图
-三、创建拦截器，并且检验用户是否登录12345678910111213141516171819202122232425262728293031public class LoginInterceptor implements...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sun Sep 03 2023 18:45:29 GMT+0800">
-                
-                    2023-09-03
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esesson%E5%AE%9E%E7%8E%B0/">基于sesson实现</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-    </div>
-
-    <a href="/2023/09/03/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84003------%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E6%A3%80%E9%AA%8C%E6%8B%A6%E6%88%AA%E5%99%A8/">阅读全文<span class="seo-reader-text">黑马点评------实现登录检验拦截器</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/09/03/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84002------%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230903184035261.png" alt="黑马点评------基于session实现用户登录以及注册功能" />
-                        </a>
-                    </div>
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/09/03/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84002------%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD/">
-                        黑马点评------基于session实现用户登录以及注册功能
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        一、登录注册流程图
-二、代码实现12345678910111213141516171819202122232425262728public Result login(LoginFormDTO loginForm, HttpSession sessio...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sun Sep 03 2023 16:06:31 GMT+0800">
-                
-                    2023-09-03
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esesson%E5%AE%9E%E7%8E%B0/">基于sesson实现</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-    </div>
-
-    <a href="/2023/09/03/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84002------%E5%AE%9E%E7%8E%B0%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD/">阅读全文<span class="seo-reader-text">黑马点评------基于session实现用户登录以及注册功能</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/09/02/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84001------%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230902213342327.png" alt="黑马点评------基于session实现用户发送验证码" />
-                        </a>
-                    </div>
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/09/02/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84001------%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        黑马点评------基于session实现用户发送验证码
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        一、发送短信验证码流程图
-二、代码如下（发送验证码用日志打印模拟实现）1234567891011121314151617public Result sendCode(String phone, HttpSession session) &#123; ...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sat Sep 02 2023 21:09:24 GMT+0800">
-                
-                    2023-09-02
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esesson%E5%AE%9E%E7%8E%B0/">基于sesson实现</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-    </div>
-
-    <a href="/2023/09/02/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84001------%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81%E7%A0%81/">阅读全文<span class="seo-reader-text">黑马点评------基于session实现用户发送验证码</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/08/27/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">阅读全文<span class="seo-reader-text">mysql主从复制</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -668,7 +349,7 @@ ps:在进行用户校验过程中，我们将用户身份验证完毕以后，�
 
     <div class="home-paginator">
         <div class="paginator">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa-regular fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa-regular fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
 </div>
 
     </div>
