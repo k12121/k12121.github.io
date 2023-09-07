@@ -13,24 +13,24 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2023/09/04/黑马点评项目/黑马点评005------session共享的集群问题/"/>
+    <link rel="canonical" href="http://example.com/2023/09/07/黑马点评项目/基于redis/黑马点评007------拦截器优化/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="一、在使用session进行业务开发时，多台Tomcat并不共享session存储空间，当切换到不同tomcat服务时会导致数据丢失问题1、这里是模式图 2、在早期，Tomcat提供了处理方案，就是在不同的tomcat服务器之间提供拷贝功能，以达到数据共享的目的，但是该方案有一些问题： 多台Tomcat存储相同的数据，造成数据浪费 在拷贝得到过程中，会有延迟，用户在延迟得到时间段访问，就会出现数据">
+        <meta name="description" content="一、增加拦截器用于更新用户token有效期，示意图如下： 二、用于拦截所有请求的拦截器代码实现：123456789101112131415161718192021222324252627282930313233343536@Override   public boolean preHandle(HttpServletRequest request, HttpServletResponse resp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="黑马点评------session共享问题分析">
-<meta property="og:url" content="http://example.com/2023/09/04/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84005------session%E5%85%B1%E4%BA%AB%E7%9A%84%E9%9B%86%E7%BE%A4%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="黑马点评------基于redis实现短信登录">
+<meta property="og:url" content="http://example.com/2023/09/07/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84007------%E6%8B%A6%E6%88%AA%E5%99%A8%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="我有一个梦想......">
-<meta property="og:description" content="一、在使用session进行业务开发时，多台Tomcat并不共享session存储空间，当切换到不同tomcat服务时会导致数据丢失问题1、这里是模式图 2、在早期，Tomcat提供了处理方案，就是在不同的tomcat服务器之间提供拷贝功能，以达到数据共享的目的，但是该方案有一些问题： 多台Tomcat存储相同的数据，造成数据浪费 在拷贝得到过程中，会有延迟，用户在延迟得到时间段访问，就会出现数据">
+<meta property="og:description" content="一、增加拦截器用于更新用户token有效期，示意图如下： 二、用于拦截所有请求的拦截器代码实现：123456789101112131415161718192021222324252627282930313233343536@Override   public boolean preHandle(HttpServletRequest request, HttpServletResponse resp">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/Snipaste_2023-09-05_10-41-08.png">
-<meta property="article:published_time" content="2023-09-04T09:57:42.766Z">
-<meta property="article:modified_time" content="2023-09-05T02:49:36.409Z">
+<meta property="og:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230907163918740.png">
+<meta property="article:published_time" content="2023-09-07T08:35:22.354Z">
+<meta property="article:modified_time" content="2023-09-07T08:43:20.094Z">
 <meta property="article:author" content="xkxk1212">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/Snipaste_2023-09-05_10-41-08.png">
+<meta name="twitter:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230907163918740.png">
     
     
     <!--- Icon Part-->
@@ -42,7 +42,7 @@
     
     <title>
         
-            黑马点评------session共享问题分析 -
+            黑马点评------基于redis实现短信登录 -
         
         我有一个梦想......
     </title>
@@ -206,9 +206,9 @@
             
                 
                 
-                <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230905104922709.png" alt="黑马点评------session共享问题分析" />
+                <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230907164304173.png" alt="黑马点评------基于redis实现短信登录" />
                 
-                <h1 class="article-title-cover">黑马点评------session共享问题分析</h1>
+                <h1 class="article-title-cover">黑马点评------基于redis实现短信登录</h1>
             
             </div>
             
@@ -230,15 +230,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-09-04 17:57:42</span>
-        <span class="mobile">2023-09-04 17:57:42</span>
+        <span class="desktop">2023-09-07 16:35:22</span>
+        <span class="mobile">2023-09-07 16:35:22</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-09-05 10:49:36</span>
-            <span class="mobile">2023-09-05 10:49:36</span>
+            <span class="desktop">2023-09-07 16:43:20</span>
+            <span class="mobile">2023-09-07 16:43:20</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -262,7 +262,7 @@
                             <li>></li>
                         
                         <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esesson%E5%AE%9E%E7%8E%B0/">基于sesson实现</a>&nbsp;
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E6%8B%A6%E6%88%AA%E5%99%A8%E4%BC%98%E5%8C%96/">拦截器优化</a>&nbsp;
                         </li>
                     
                     
@@ -288,38 +288,35 @@
         
 
         <div class="article-content markdown-body">
-            <h3 id="一、在使用session进行业务开发时，多台Tomcat并不共享session存储空间，当切换到不同tomcat服务时会导致数据丢失问题"><a href="#一、在使用session进行业务开发时，多台Tomcat并不共享session存储空间，当切换到不同tomcat服务时会导致数据丢失问题" class="headerlink" title="一、在使用session进行业务开发时，多台Tomcat并不共享session存储空间，当切换到不同tomcat服务时会导致数据丢失问题"></a>一、在使用session进行业务开发时，多台Tomcat并不共享session存储空间，当切换到不同tomcat服务时会导致数据丢失问题</h3><h4 id="1、这里是模式图"><a href="#1、这里是模式图" class="headerlink" title="1、这里是模式图"></a>1、这里是模式图</h4><p><img  
+            <h3 id="一、增加拦截器用于更新用户token有效期，示意图如下："><a href="#一、增加拦截器用于更新用户token有效期，示意图如下：" class="headerlink" title="一、增加拦截器用于更新用户token有效期，示意图如下："></a>一、增加拦截器用于更新用户token有效期，示意图如下：</h3><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/Snipaste_2023-09-05_10-41-08.png"
-                      alt="Snipaste_2023-09-05_10-41-08"
+                     data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230907163918740.png"
+                      alt="image-20230907163918740"
                 ></p>
-<h4 id="2、在早期，Tomcat提供了处理方案，就是在不同的tomcat服务器之间提供拷贝功能，以达到数据共享的目的，但是该方案有一些问题："><a href="#2、在早期，Tomcat提供了处理方案，就是在不同的tomcat服务器之间提供拷贝功能，以达到数据共享的目的，但是该方案有一些问题：" class="headerlink" title="2、在早期，Tomcat提供了处理方案，就是在不同的tomcat服务器之间提供拷贝功能，以达到数据共享的目的，但是该方案有一些问题："></a>2、在早期，Tomcat提供了处理方案，就是在不同的tomcat服务器之间提供拷贝功能，以达到数据共享的目的，但是该方案有一些问题：</h4><ul>
-<li>多台Tomcat存储相同的数据，造成数据浪费</li>
-<li>在拷贝得到过程中，会有延迟，用户在延迟得到时间段访问，就会出现数据问题</li>
-</ul>
-<h4 id="3、替代方案应该满足的条件："><a href="#3、替代方案应该满足的条件：" class="headerlink" title="3、替代方案应该满足的条件："></a>3、替代方案应该满足的条件：</h4><ul>
-<li>能够数据共享</li>
-<li>用内存存储</li>
-<li>拥有key、value结构</li>
-</ul>
+<h3 id="二、用于拦截所有请求的拦截器代码实现："><a href="#二、用于拦截所有请求的拦截器代码实现：" class="headerlink" title="二、用于拦截所有请求的拦截器代码实现："></a>二、用于拦截所有请求的拦截器代码实现：</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">preHandle</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br><br><br>       <span class="hljs-comment">// 1.获取请求头中的token</span><br>       <span class="hljs-type">String</span> <span class="hljs-variable">token</span> <span class="hljs-operator">=</span> request.getHeader(<span class="hljs-string">&quot;authorization&quot;</span>);<br>       <span class="hljs-keyword">if</span> (StrUtil.isBlank(token)) &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>       &#125;<br><br>       <span class="hljs-comment">// 2.基于token获取redis中的用户  当没有时候，会返回空entries</span><br>       Map&lt;Object, Object&gt; userMap = stringRedisTemplate.opsForHash()<br>               .entries(RedisConstants.LOGIN_USER_KEY + token);<br><br>       <span class="hljs-comment">// 3.判断用户是否存在</span><br>       <span class="hljs-keyword">if</span> (userMap.isEmpty()) &#123;<br>           <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>       &#125;<br><br>       log.debug(<span class="hljs-string">&quot;LoginInterceptor中userMap为：&quot;</span> + userMap);<br><br><br>       <span class="hljs-comment">// 5.将查询到的user对象转为userDto对象</span><br>       <span class="hljs-type">UserDTO</span> <span class="hljs-variable">userDTO</span> <span class="hljs-operator">=</span> BeanUtil.fillBeanWithMap(userMap, <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserDTO</span>(), <span class="hljs-literal">false</span>);<br><br>       <span class="hljs-comment">// 6.存在，将用户信息保存在ThreadLocal</span><br>       UserHolder.saveUser(userDTO);  <span class="hljs-comment">// 保存在当前线程</span><br><br>       <span class="hljs-comment">//  7.刷新token有效期</span><br>       stringRedisTemplate.expire(RedisConstants.LOGIN_USER_KEY<br>               + token, RedisConstants.LOGIN_USER_TTL, TimeUnit.MINUTES);<br><br>       <span class="hljs-comment">// 8.放行</span><br>       <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>   &#125;<br><br></code></pre></td></tr></table></figure></div>
 
+<h3 id="三、用于拦截部分请求的拦截器"><a href="#三、用于拦截部分请求的拦截器" class="headerlink" title="三、用于拦截部分请求的拦截器"></a>三、用于拦截部分请求的拦截器</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java">  <span class="hljs-keyword">public</span> <span class="hljs-title function_">LoginInterceptor</span><span class="hljs-params">(StringRedisTemplate stringRedisTemplate)</span> &#123;<br>      <span class="hljs-built_in">this</span>.stringRedisTemplate = stringRedisTemplate;<br>  &#125;<br><br>  <span class="hljs-meta">@Override</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">preHandle</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br><br>      <span class="hljs-comment">// 判断是否需要拦截（ThreadLocal中是否有用户）</span><br>      <span class="hljs-keyword">if</span> (UserHolder.getUser() == <span class="hljs-literal">null</span>) &#123;<br>          <span class="hljs-comment">// 没有 需要拦截</span><br>          response.setStatus(<span class="hljs-number">404</span>);<br>          <span class="hljs-comment">// 拦截</span><br>          <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>      &#125;<br><br>      <span class="hljs-comment">// 由用户 则放行</span><br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></div>
+
+<h3 id="四、配置拦截器"><a href="#四、配置拦截器" class="headerlink" title="四、配置拦截器"></a>四、配置拦截器</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MvcConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> &#123;<br><br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> StringRedisTemplate stringRedisTemplate;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addInterceptors</span><span class="hljs-params">(InterceptorRegistry registry)</span> &#123;<br>        <span class="hljs-comment">// 拦截部分请求</span><br>        registry.addInterceptor(<span class="hljs-keyword">new</span> <span class="hljs-title class_">LoginInterceptor</span>(stringRedisTemplate)).excludePathPatterns(<br>                <span class="hljs-string">&quot;/user/code&quot;</span>,<br>                <span class="hljs-string">&quot;/user/login&quot;</span>,<br>                <span class="hljs-string">&quot;/blog/hot&quot;</span>,<br>                <span class="hljs-string">&quot;/shop/**&quot;</span>,<br>                <span class="hljs-string">&quot;/shop-type/**&quot;</span>,<br>                <span class="hljs-string">&quot;upload/**&quot;</span>,<br>                <span class="hljs-string">&quot;/Voucher/**&quot;</span><br>        ).order(<span class="hljs-number">1</span>);<br>        <span class="hljs-comment">// 拦截所有请求</span><br>        registry.addInterceptor(<span class="hljs-keyword">new</span> <span class="hljs-title class_">RefreshTokenIntercepter</span>(stringRedisTemplate))<br>                .addPathPatterns(<span class="hljs-string">&quot;/**&quot;</span>).order(<span class="hljs-number">0</span>);  <span class="hljs-comment">// 调整执行先后顺序 值越小执行越靠前</span><br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure></div>
+
+<h4 id="ps-通过order设置拦截器的优先级，值越小，拦截器优先级越高"><a href="#ps-通过order设置拦截器的优先级，值越小，拦截器优先级越高" class="headerlink" title="ps:通过order设置拦截器的优先级，值越小，拦截器优先级越高"></a>ps:通过order设置拦截器的优先级，值越小，拦截器优先级越高</h4>
         </div>
 
         
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 黑马点评------session共享问题分析</li>
+        <li><strong>标题:</strong> 黑马点评------基于redis实现短信登录</li>
         <li><strong>作者:</strong> xkxk1212</li>
-        <li><strong>创建于:</strong> 2023-09-04 17:57:42</li>
+        <li><strong>创建于:</strong> 2023-09-07 16:35:22</li>
         
             <li>
-                <strong>更新于:</strong> 2023-09-05 10:49:36
+                <strong>更新于:</strong> 2023-09-07 16:43:20
             </li>
         
         <li>
-            <strong>链接:</strong> http://example.com/2023/09/04/黑马点评项目/黑马点评005------session共享的集群问题/
+            <strong>链接:</strong> http://example.com/2023/09/07/黑马点评项目/基于redis/黑马点评007------拦截器优化/
         </li>
         <li>
             <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
@@ -337,29 +334,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2023/09/05/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84006------%E5%9F%BA%E4%BA%8Eredis%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">黑马点评------基于redis实现短信登录</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                         rel="next"
-                        href="/2023/09/04/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84004------%E9%9A%90%E8%97%8F%E7%94%A8%E6%88%B7%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF/"
+                        href="/2023/09/05/vue/%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91%E4%BB%A5%E5%8F%8A%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">黑马点评------隐藏用户敏感信息</span>
+                                <span class="post-nav-title-item">路由重定向以及切换路由模式</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -424,8 +406,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">黑马点评------session共享问题分析</div>
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9C%A8%E4%BD%BF%E7%94%A8session%E8%BF%9B%E8%A1%8C%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91%E6%97%B6%EF%BC%8C%E5%A4%9A%E5%8F%B0Tomcat%E5%B9%B6%E4%B8%8D%E5%85%B1%E4%BA%ABsession%E5%AD%98%E5%82%A8%E7%A9%BA%E9%97%B4%EF%BC%8C%E5%BD%93%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8D%E5%90%8Ctomcat%E6%9C%8D%E5%8A%A1%E6%97%B6%E4%BC%9A%E5%AF%BC%E8%87%B4%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98"><span class="nav-text">一、在使用session进行业务开发时，多台Tomcat并不共享session存储空间，当切换到不同tomcat服务时会导致数据丢失问题</span></a></li></ol>
+        <div class="page-title">黑马点评------基于redis实现短信登录</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%A2%9E%E5%8A%A0%E6%8B%A6%E6%88%AA%E5%99%A8%E7%94%A8%E4%BA%8E%E6%9B%B4%E6%96%B0%E7%94%A8%E6%88%B7token%E6%9C%89%E6%95%88%E6%9C%9F%EF%BC%8C%E7%A4%BA%E6%84%8F%E5%9B%BE%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-text">一、增加拦截器用于更新用户token有效期，示意图如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%94%A8%E4%BA%8E%E6%8B%A6%E6%88%AA%E6%89%80%E6%9C%89%E8%AF%B7%E6%B1%82%E7%9A%84%E6%8B%A6%E6%88%AA%E5%99%A8%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-text">二、用于拦截所有请求的拦截器代码实现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%94%A8%E4%BA%8E%E6%8B%A6%E6%88%AA%E9%83%A8%E5%88%86%E8%AF%B7%E6%B1%82%E7%9A%84%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-text">三、用于拦截部分请求的拦截器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%85%8D%E7%BD%AE%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-text">四、配置拦截器</span></a></li></ol>
 
     </div>
 </div>
