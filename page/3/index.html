@@ -250,7 +250,7 @@
                 <div class="author">
                     <div class="name">xkxk1212</div>
                     
-                        <div class="label">Lv2</div>
+                        <div class="label">Lv3</div>
                     
                 </div>
                 <div class="statistics">
@@ -259,11 +259,11 @@
                         <div class="label">标签</div>
                     </a>
                     <a class="item" href="/categories">
-                        <div class="number">7</div>
+                        <div class="number">10</div>
                         <div class="label">分类</div>
                     </a>
                     <a class="item" href="/archives">
-                        <div class="number">14</div>
+                        <div class="number">27</div>
                         <div class="label">文章</div>
                     </a>
                 </div>
@@ -290,34 +290,38 @@
                 
                 
                     <div class="home-article-thumbnail">
-                        <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------mysql/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230830150542403.png" alt="linux安装软件------mysql" />
+                        <a href="/2023/09/09/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E5%95%86%E6%88%B7%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84009------%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/">
+                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230909092854988.png" alt="黑马点评------缓存更新策略" />
                         </a>
                     </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------mysql/">
-                        linux安装软件------mysql
+                    <a href="/2023/09/09/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E5%95%86%E6%88%B7%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84009------%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/">
+                        黑马点评------缓存更新策略
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        1.检测当前系统中是否安装mysql数据库,命令如下：123rpm -qarpm -qa | grep mysqlrpm -qa | grep mariadb
+                        一、缓存更新策略
+
+二、选择01方案能够较好的对缓存进行操作，但是需要考虑以下问题：
+1.删除缓存还是更新缓存
+更新缓存：每次更新数据库都更新缓存，无效写操作操作较多（不推荐）
+删除缓存：更新数据库时让缓存失效，查询时再更新缓存
 
 
-
-ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具  如果当前系统...
+2.如何保存缓存...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Aug 28 2023 16:58:44 GMT+0800">
+            <span class="home-article-date" data-date="Sat Sep 09 2023 08:53:44 GMT+0800">
                 
-                    2023-08-28
+                    2023-09-09
                 
             </span>
         </span>
@@ -330,7 +334,17 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
                     
                         
                         <li>
-                            <a href="/categories/linu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linu软件安装</a>&nbsp;
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%95%86%E6%88%B7%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98/">商户查询缓存</a>&nbsp;
                         </li>
                     
                     
@@ -341,7 +355,143 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
         
     </div>
 
-    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------mysql/">阅读全文<span class="seo-reader-text">linux安装软件------mysql</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/09/09/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E5%95%86%E6%88%B7%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84009------%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E7%AD%96%E7%95%A5/">阅读全文<span class="seo-reader-text">黑马点评------缓存更新策略</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/09/08/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E5%95%86%E6%88%B7%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84008------%E6%B7%BB%E5%8A%A0%E5%95%86%E6%88%B7%E7%BC%93%E5%AD%98/">
+                        黑马点评------商户查询缓存
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        一、缓存作用模型
+二、根据id查询商铺缓存流程
+三、基础代码1234567891011121314151617181920212223242526272829303132333435363738@Servicepublic class ShopSer...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Sep 08 2023 14:58:48 GMT+0800">
+                
+                    2023-09-08
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%95%86%E6%88%B7%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98/">商户查询缓存</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2023/09/08/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E5%95%86%E6%88%B7%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84008------%E6%B7%BB%E5%8A%A0%E5%95%86%E6%88%B7%E7%BC%93%E5%AD%98/">阅读全文<span class="seo-reader-text">黑马点评------商户查询缓存</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/09/07/vue/003--%E4%B8%A4%E7%A7%8D%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E6%96%B9%E5%BC%8F/">
+                        路由重定向以及切换路由模式
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        一、通过路径跳转1.语法格式
+第一种形式（简写形式）
+
+1this.$router.push(&#x27;search&#x27;);
+
+
+第二种形式
+
+123this.$router.push(&#123;	path: &#x27;/search&...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Thu Sep 07 2023 19:16:42 GMT+0800">
+                
+                    2023-09-07
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2023/09/07/vue/003--%E4%B8%A4%E7%A7%8D%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E6%96%B9%E5%BC%8F/">阅读全文<span class="seo-reader-text">路由重定向以及切换路由模式</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -355,33 +505,31 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
                 
                 
                     <div class="home-article-thumbnail">
-                        <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230830150320851.png" alt="linux安装软件------tomcat" />
+                        <a href="/2023/09/07/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84007------%E6%8B%A6%E6%88%AA%E5%99%A8%E4%BC%98%E5%8C%96/">
+                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230907164304173.png" alt="黑马点评------拦截器优化" />
                         </a>
                     </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/">
-                        linux安装软件------tomcat
+                    <a href="/2023/09/07/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84007------%E6%8B%A6%E6%88%AA%E5%99%A8%E4%BC%98%E5%8C%96/">
+                        黑马点评------拦截器优化
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        一、操作步骤1.使用ssh连接工具将tomcat二进制发布包上传到linux
-2.解压安装包 命令如下1tar -zxvf apache-tomcat-7.0.57.tar.gz -C /usr/local
-
-3.进入tomcat的bin目录启动服务...
+                        一、增加拦截器用于更新用户token有效期，示意图如下：
+二、用于拦截所有请求的拦截器代码实现：123456789101112131415161718192021222324252627282930313233343536@Override   pu...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Aug 28 2023 12:27:10 GMT+0800">
+            <span class="home-article-date" data-date="Thu Sep 07 2023 16:35:22 GMT+0800">
                 
-                    2023-08-28
+                    2023-09-07
                 
             </span>
         </span>
@@ -394,7 +542,17 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
                     
                         
                         <li>
-                            <a href="/categories/linu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linu软件安装</a>&nbsp;
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis%E5%AE%9E%E7%8E%B0/">基于redis实现</a>&nbsp;
                         </li>
                     
                     
@@ -405,7 +563,7 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
         
     </div>
 
-    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/">阅读全文<span class="seo-reader-text">linux安装软件------tomcat</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/09/07/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Eredis/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84007------%E6%8B%A6%E6%88%AA%E5%99%A8%E4%BC%98%E5%8C%96/">阅读全文<span class="seo-reader-text">黑马点评------拦截器优化</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -419,32 +577,32 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
                 
                 
                     <div class="home-article-thumbnail">
-                        <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%20------%20jdk/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230830150002129.png" alt="linux软件安装 ------ jdk" />
+                        <a href="/2023/09/05/vue/002--%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91%E4%BB%A5%E5%8F%8A%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/">
+                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230905191507395.png" alt="路由重定向以及切换路由模式" />
                         </a>
                     </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%20------%20jdk/">
-                        linux软件安装 ------ jdk
+                    <a href="/2023/09/05/vue/002--%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91%E4%BB%A5%E5%8F%8A%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/">
+                        路由重定向以及切换路由模式
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        一、软件安装方式1.二进制发布包安装​		软件已经针对具体平台编译打包发布，只要解压，修改配置即可
-2.rpm安装​		软件已经针对redhat的打包管理规范进行打包，使用rpm命令进行安装，不能自行解决库依赖问题
-3.yum安装​		一种在线软件安...
+                        一、vue路由重定向
+在开发过程中，如果默认打开路径是”&#x2F;“的时候，网站页面可能出现空白，所以需要对路由进行默认的重定向配置，具体配置如下：
+在route跳转路径配置中，增加配置 {path: ‘&#x2F;‘, redirect: ‘&#...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Aug 28 2023 12:27:10 GMT+0800">
+            <span class="home-article-date" data-date="Tue Sep 05 2023 18:57:46 GMT+0800">
                 
-                    2023-08-28
+                    2023-09-05
                 
             </span>
         </span>
@@ -457,71 +615,17 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
                     
                         
                         <li>
-                            <a href="/categories/linu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linu软件安装</a>&nbsp;
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
                         </li>
                     
                     
-                
-            </ul>
-        </span>
-        
-        
-    </div>
-
-    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%20------%20jdk/">阅读全文<span class="seo-reader-text">linux软件安装 ------ jdk</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/08/27/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230830151459637.png" alt="mysql主从复制" />
-                        </a>
-                    </div>
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/08/27/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
-                        mysql主从复制
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        一、主库1.修改mysql数据库的配置文件 &#x2F;etc&#x2F;my.cnf，在头部文件加入以下配置：12log-bin=mysql-bin  #[必须]启用二进制日志server-id=100  #[必须]服务器唯一id
-
-
-2.重启my...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sun Aug 27 2023 18:09:21 GMT+0800">
-                
-                    2023-08-27
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
                 
                     
                         
+                            <li>></li>
+                        
                         <li>
-                            <a href="/categories/MySQL/">MySQL</a>&nbsp;
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a>&nbsp;
                         </li>
                     
                     
@@ -532,7 +636,7 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
         
     </div>
 
-    <a href="/2023/08/27/mysql%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">阅读全文<span class="seo-reader-text">mysql主从复制</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/09/05/vue/002--%E8%B7%AF%E7%94%B1%E9%87%8D%E5%AE%9A%E5%90%91%E4%BB%A5%E5%8F%8A%E5%88%87%E6%8D%A2%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%BC%8F/">阅读全文<span class="seo-reader-text">路由重定向以及切换路由模式</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -541,7 +645,7 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
 
     <div class="home-paginator">
         <div class="paginator">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa-regular fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa-regular fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa-regular fa-angle-right"></i></a>
 </div>
 
     </div>
