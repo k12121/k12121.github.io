@@ -250,7 +250,7 @@
                 <div class="author">
                     <div class="name">xkxk1212</div>
                     
-                        <div class="label">Lv3</div>
+                        <div class="label">Lv5</div>
                     
                 </div>
                 <div class="statistics">
@@ -259,11 +259,11 @@
                         <div class="label">标签</div>
                     </a>
                     <a class="item" href="/categories">
-                        <div class="number">10</div>
+                        <div class="number">21</div>
                         <div class="label">分类</div>
                     </a>
                     <a class="item" href="/archives">
-                        <div class="number">27</div>
+                        <div class="number">68</div>
                         <div class="label">文章</div>
                     </a>
                 </div>
@@ -286,35 +286,30 @@
                 
 
                 
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/09/02/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esession/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84001------%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230902213342327.png" alt="黑马点评------基于session实现用户发送验证码" />
-                        </a>
-                    </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/09/02/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esession/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84001------%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        黑马点评------基于session实现用户发送验证码
+                    <a href="/2023/09/30/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/04%20%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/02%20%E5%9F%BA%E4%BA%8ERedis%E5%AE%8C%E6%88%90%E7%A7%92%E6%9D%80%E8%B5%84%E6%A0%BC%E5%88%A4%E6%96%AD/">
+                        02 基于Redis完成秒杀资格判断
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        一、发送短信验证码流程图
-二、代码如下（发送验证码用日志打印模拟实现）1234567891011121314151617public Result sendCode(String phone, HttpSession session) &#123; ...
+                        一、需求（改进秒杀功能，实现异步秒杀）
+新增秒杀优惠券的同时，将优惠券信息保存到Redis中
+基于Lua脚本，判断秒杀库存，一人一单，决定用户是否抢购成功
+如果请购成功，将优惠券id和用户id封装后存入阻塞队列
+开启线程任务，不断从阻塞队列中获取信息...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sat Sep 02 2023 21:09:24 GMT+0800">
+            <span class="home-article-date" data-date="Sat Sep 30 2023 10:10:17 GMT+0800">
                 
-                    2023-09-02
+                    2023-09-30
                 
             </span>
         </span>
@@ -337,7 +332,7 @@
                             <li>></li>
                         
                         <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esesson%E5%AE%9E%E7%8E%B0/">基于sesson实现</a>&nbsp;
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/">秒杀优化</a>&nbsp;
                         </li>
                     
                     
@@ -348,7 +343,7 @@
         
     </div>
 
-    <a href="/2023/09/02/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8Esession/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84001------%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81%E7%A0%81/">阅读全文<span class="seo-reader-text">黑马点评------基于session实现用户发送验证码</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/09/30/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/04%20%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/02%20%E5%9F%BA%E4%BA%8ERedis%E5%AE%8C%E6%88%90%E7%A7%92%E6%9D%80%E8%B5%84%E6%A0%BC%E5%88%A4%E6%96%AD/">阅读全文<span class="seo-reader-text">02 基于Redis完成秒杀资格判断</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -358,36 +353,32 @@
                 
 
                 
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/08/31/vue/001--VueRouter%E4%BD%BF%E7%94%A8/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230831170551391.png" alt="VueRouter的入门使用" />
-                        </a>
-                    </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/08/31/vue/001--VueRouter%E4%BD%BF%E7%94%A8/">
-                        VueRouter的入门使用
+                    <a href="/2023/09/28/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/04%20%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/01%20%E5%BC%82%E6%AD%A5%E7%A7%92%E6%9D%80%E6%80%9D%E8%B7%AF/">
+                        01 异步秒杀思路
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        一、基本使用步骤（前五步）1.下载：下载VueRouter模块到当前工程1yarn add vue-router@3.6.5
+                        一、原有架构示例图
 
-2.在main.js中引入vue-router1import VueRouter from &#x27;vue-route...
+之前的秒杀逻辑是每次都由一个线程一次性执行完所有的流程，导致效率很低
+
+二、优化以后的架构图
+
+利用两个线程完成整个业务逻辑的处理，第一个线程会判断用户是否有抢购的资格，第二个线程完成后续订单的创建，在判断用户有抢购资格后，就会...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Aug 31 2023 16:39:09 GMT+0800">
+            <span class="home-article-date" data-date="Thu Sep 28 2023 16:08:33 GMT+0800">
                 
-                    2023-08-31
+                    2023-09-28
                 
             </span>
         </span>
@@ -400,7 +391,7 @@
                     
                         
                         <li>
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
                         </li>
                     
                     
@@ -410,7 +401,7 @@
                             <li>></li>
                         
                         <li>
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a>&nbsp;
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/">秒杀优化</a>&nbsp;
                         </li>
                     
                     
@@ -421,7 +412,7 @@
         
     </div>
 
-    <a href="/2023/08/31/vue/001--VueRouter%E4%BD%BF%E7%94%A8/">阅读全文<span class="seo-reader-text">VueRouter的入门使用</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/09/28/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/04%20%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/01%20%E5%BC%82%E6%AD%A5%E7%A7%92%E6%9D%80%E6%80%9D%E8%B7%AF/">阅读全文<span class="seo-reader-text">01 异步秒杀思路</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -431,35 +422,26 @@
                 
 
                 
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/08/28/java%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/u=3837063620,1916052589&fm=253&fmt=auto&app=120&f=JPEG.webp" alt="java实现发送邮箱验证码" />
-                        </a>
-                    </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/08/28/java%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        java实现发送邮箱验证码
+                    <a href="/2023/09/28/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/10%20redisson%E7%9A%84multiLock%E5%8E%9F%E7%90%86/">
+                        
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        1.首先登录qq邮箱，在设置-账户里面开启POP3&#x2F;SMTP服务
-2.开启以后，会得到一个密码，及此密码配置在如下代码中：1234567891011121314151617public class MailUtil &#123;    pu...
+                        
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Aug 28 2023 19:16:03 GMT+0800">
+            <span class="home-article-date" data-date="Thu Sep 28 2023 16:07:22 GMT+0800">
                 
-                    2023-08-28
+                    2023-09-28
                 
             </span>
         </span>
@@ -467,7 +449,7 @@
         
     </div>
 
-    <a href="/2023/08/28/java%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81/">阅读全文<span class="seo-reader-text">java实现发送邮箱验证码</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/09/28/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/10%20redisson%E7%9A%84multiLock%E5%8E%9F%E7%90%86/">阅读全文<span class="seo-reader-text"></span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -477,38 +459,26 @@
                 
 
                 
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------mysql/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230830150542403.png" alt="linux安装软件------mysql" />
-                        </a>
-                    </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------mysql/">
-                        linux安装软件------mysql
+                    <a href="/2023/09/28/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/09%20redisson%E7%9A%84%E9%94%81%E9%87%8D%E8%AF%95%E5%92%8CWatchDog%E6%9C%BA%E5%88%B6/">
+                        09 redisson的锁重试和WatchDog机制
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        1.检测当前系统中是否安装mysql数据库,命令如下：123rpm -qarpm -qa | grep mysqlrpm -qa | grep mariadb
-
-
-
-ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具  如果当前系统...
+                        
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Aug 28 2023 16:58:44 GMT+0800">
+            <span class="home-article-date" data-date="Thu Sep 28 2023 15:41:41 GMT+0800">
                 
-                    2023-08-28
+                    2023-09-28
                 
             </span>
         </span>
@@ -521,7 +491,27 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
                     
                         
                         <li>
-                            <a href="/categories/linu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linu软件安装</a>&nbsp;
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/Redisson/">Redisson</a>&nbsp;
                         </li>
                     
                     
@@ -532,7 +522,7 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
         
     </div>
 
-    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------mysql/">阅读全文<span class="seo-reader-text">linux安装软件------mysql</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/09/28/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/09%20redisson%E7%9A%84%E9%94%81%E9%87%8D%E8%AF%95%E5%92%8CWatchDog%E6%9C%BA%E5%88%B6/">阅读全文<span class="seo-reader-text">09 redisson的锁重试和WatchDog机制</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -542,37 +532,32 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
                 
 
                 
-                    
-                
-                
-                    <div class="home-article-thumbnail">
-                        <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/">
-                            <img src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20230830150320851.png" alt="linux安装软件------tomcat" />
-                        </a>
-                    </div>
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/">
-                        linux安装软件------tomcat
+                    <a href="/2023/09/26/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/08%20Redisson%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81%E5%8E%9F%E7%90%86/">
+                        08 Redisson可重入锁原理
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        一、操作步骤1.使用ssh连接工具将tomcat二进制发布包上传到linux
-2.解压安装包 命令如下1tar -zxvf apache-tomcat-7.0.57.tar.gz -C /usr/local
+                        一、流程图
 
-3.进入tomcat的bin目录启动服务...
+采用何种数据结构：采用redis中的hash数据结构
+
+二、以下是lua脚本示例
+三、释放锁的lua脚本示例
+
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Aug 28 2023 12:27:10 GMT+0800">
+            <span class="home-article-date" data-date="Tue Sep 26 2023 21:24:08 GMT+0800">
                 
-                    2023-08-28
+                    2023-09-26
                 
             </span>
         </span>
@@ -585,7 +570,27 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
                     
                         
                         <li>
-                            <a href="/categories/linu%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linu软件安装</a>&nbsp;
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/Redisson/">Redisson</a>&nbsp;
                         </li>
                     
                     
@@ -596,7 +601,7 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
         
     </div>
 
-    <a href="/2023/08/28/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85------tomcat/">阅读全文<span class="seo-reader-text">linux安装软件------tomcat</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/09/26/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/08%20Redisson%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81%E5%8E%9F%E7%90%86/">阅读全文<span class="seo-reader-text">08 Redisson可重入锁原理</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -605,7 +610,7 @@ ps:RPM是软件包管理器，是红帽linux用于管理和安装软件的工具
 
     <div class="home-paginator">
         <div class="paginator">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa-regular fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa-regular fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa-regular fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/"><i class="fa-regular fa-angle-right"></i></a>
 </div>
 
     </div>

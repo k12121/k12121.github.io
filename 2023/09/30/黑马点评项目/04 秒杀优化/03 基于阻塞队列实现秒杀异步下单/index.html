@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="xkxk1212">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2023/09/30/黑马点评项目/04 秒杀优化/03 基于阻塞队列实现秒杀异步下单/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="一、首先在成员变量里创建线程池以及线程任务12345678910111213141516171819202122232425262728&#x2F;&#x2F; Strong 创建线程池 用于处理下单业务   private static final ExecutorService SECKILL_ORDER_EXECUTOR &#x3D; Executors.newSingleThreadExecutor();   @Pos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03 基于阻塞对列实现秒杀异步下单（*）">
+<meta property="og:url" content="http://example.com/2023/09/30/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/04%20%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/03%20%E5%9F%BA%E4%BA%8E%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E7%A7%92%E6%9D%80%E5%BC%82%E6%AD%A5%E4%B8%8B%E5%8D%95/index.html">
+<meta property="og:site_name" content="我有一个梦想......">
+<meta property="og:description" content="一、首先在成员变量里创建线程池以及线程任务12345678910111213141516171819202122232425262728&#x2F;&#x2F; Strong 创建线程池 用于处理下单业务   private static final ExecutorService SECKILL_ORDER_EXECUTOR &#x3D; Executors.newSingleThreadExecutor();   @Pos">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-30T07:50:01.759Z">
+<meta property="article:modified_time" content="2023-09-30T08:51:19.824Z">
+<meta property="article:author" content="xkxk1212">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#e19d00">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            03 基于阻塞对列实现秒杀异步下单（*） -
+        
+        我有一个梦想......
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#e19d00","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"欲买桂花同载酒，终不似，少年游","subtitle":{"text":["我似乎，欠某个人，一句话......","忽有故人心头过，回首山河已是秋","没人会听你诉说失败","那些失去的，还会再回来吗？"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.3.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="swup-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container" id="swup">
+    
+
+    
+
+    <div class="main-content-container">
+        
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                我有一个梦想......
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">03 基于阻塞对列实现秒杀异步下单（*）</h1>
+            
+            </div>
+            
+                    
+        
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">xkxk1212</span>
+                        
+                            <span class="author-label">Lv5</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-09-30 15:50:01</span>
+        <span class="mobile">2023-09-30 15:50:01</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-09-30 16:51:19</span>
+            <span class="mobile">2023-09-30 16:51:19</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/">秒杀优化</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="一、首先在成员变量里创建线程池以及线程任务"><a href="#一、首先在成员变量里创建线程池以及线程任务" class="headerlink" title="一、首先在成员变量里创建线程池以及线程任务"></a>一、首先在成员变量里创建线程池以及线程任务</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Strong 创建线程池 用于处理下单业务</span><br>   <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">ExecutorService</span> <span class="hljs-variable">SECKILL_ORDER_EXECUTOR</span> <span class="hljs-operator">=</span> Executors.newSingleThreadExecutor();<br><br><br>   <span class="hljs-meta">@PostConstruct</span>  <span class="hljs-comment">// Strong 标识在当前类初始化完毕以后进行执行</span><br>   <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">()</span> &#123;<br>       <span class="hljs-comment">// 直接执行任务</span><br>       SECKILL_ORDER_EXECUTOR.submit(<span class="hljs-keyword">new</span> <span class="hljs-title class_">VoucherOrderHandler</span>());<br>   &#125;<br><br>   <span class="hljs-comment">//Strong  创建线程任务 这里必须让类一初始化就执行该任务</span><br>   <span class="hljs-keyword">private</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">VoucherOrderHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Runnable</span> &#123;<br><br>       <span class="hljs-meta">@Override</span><br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">()</span> &#123;<br>           <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br><br>               <span class="hljs-keyword">try</span> &#123;<br>                   <span class="hljs-comment">// 获取队列中的订单信息</span><br>                   <span class="hljs-type">VoucherOrder</span> <span class="hljs-variable">voucherOrder</span> <span class="hljs-operator">=</span> orderTasks.take();<span class="hljs-comment">// 这里就是一个等待方法</span><br>                   <span class="hljs-comment">// 创建订单异常</span><br>                   handleVoucherOrder(voucherOrder);<br>               &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                   log.error(<span class="hljs-string">&quot;处理订单异常&quot;</span>, e);<br>               &#125;<br>           &#125;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure></div>
+
+<h3 id="二、创建用于对订单进行处理的函数"><a href="#二、创建用于对订单进行处理的函数" class="headerlink" title="二、创建用于对订单进行处理的函数"></a>二、创建用于对订单进行处理的函数</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Strong 用于对订单进行处理</span><br>   <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">handleVoucherOrder</span><span class="hljs-params">(VoucherOrder voucherOrder)</span> <span class="hljs-keyword">throws</span> InterruptedException &#123;<br>       <span class="hljs-comment">// 创建锁对象  Strong 建议使用用户id作为锁对象</span><br>       <span class="hljs-type">Long</span> <span class="hljs-variable">userId</span> <span class="hljs-operator">=</span> voucherOrder.getUserId();  <span class="hljs-comment">// Strong 不支持从线程获取id,因为线程不一样</span><br>       <span class="hljs-type">RLock</span> <span class="hljs-variable">lock</span> <span class="hljs-operator">=</span> redissonClient.getLock(<span class="hljs-string">&quot;lock:order:&quot;</span> + userId);  <span class="hljs-comment">// Strong 利用redissonClient来获取锁</span><br>       <span class="hljs-comment">// 获取锁</span><br>       <span class="hljs-type">boolean</span> <span class="hljs-variable">isLock</span> <span class="hljs-operator">=</span> lock.tryLock(<span class="hljs-number">1L</span>, TimeUnit.SECONDS);  <span class="hljs-comment">// Strong 无参 相当于获取锁失败不等待 有参，相当于等待一秒钟</span><br>       <span class="hljs-comment">// 判断获取锁是否成功</span><br>       <span class="hljs-keyword">if</span> (!isLock) &#123;<br>           <span class="hljs-comment">// 获取锁失败，返回错误或重试</span><br>           log.error(<span class="hljs-string">&quot;不允许重复下单&quot;</span>);<br>           <span class="hljs-keyword">return</span>;<br>       &#125;<br><br>       <span class="hljs-keyword">try</span> &#123;<br>           proxy.createVoucherOrder(voucherOrder);<br>       &#125; <span class="hljs-keyword">catch</span> (IllegalStateException e) &#123;<br>           <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);<br>       &#125; <span class="hljs-keyword">finally</span> &#123;<br>           <span class="hljs-comment">// 释放锁</span><br>           <span class="hljs-comment">//lock.unLock();</span><br>           lock.unlock();<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure></div>
+
+<ul>
+<li>注意：使用proxy.createVoucherOrder(voucherOrder);时候，必须要在外部声明代理都对象，因为该函数在子线程内部调用，子线程无法取得父线程的内容，下面将会对代理对象进行初始化</li>
+</ul>
+<h3 id="三、主要业务代码"><a href="#三、主要业务代码" class="headerlink" title="三、主要业务代码"></a>三、主要业务代码</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> IVoucherOrderService proxy;  <span class="hljs-comment">// Strong 在下面做初始化</span><br><br>  <span class="hljs-meta">@Override</span>  <span class="hljs-comment">// Strong 优惠券秒杀下单的业务处理</span><br>  <span class="hljs-keyword">public</span> Result <span class="hljs-title function_">seckillVoucher</span><span class="hljs-params">(Long voucherId)</span> <span class="hljs-keyword">throws</span> InterruptedException &#123;<br><br>      <span class="hljs-comment">// 获取用户id</span><br>      <span class="hljs-type">Long</span> <span class="hljs-variable">userId</span> <span class="hljs-operator">=</span> UserHolder.getUser().getId();<br><br>      <span class="hljs-comment">// 1.执行lua脚本</span><br>      <span class="hljs-type">Long</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> stringRedisTemplate.execute(<br>              SECKILL_SCRIPT,<br>              Collections.emptyList(),<br>              voucherId.toString(), userId.toString()<br>      );<br>      <span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> result.intValue();<br>      <span class="hljs-comment">// 2.判断结果是否为0</span><br>      <span class="hljs-keyword">if</span> (r != <span class="hljs-number">0</span>) &#123;<br>          <span class="hljs-comment">// 2.1 不为0，代表没有购买资格</span><br>          <span class="hljs-keyword">return</span> Result.fail(r == <span class="hljs-number">1</span> ? <span class="hljs-string">&quot;库存不足&quot;</span> : <span class="hljs-string">&quot;单个用户只能购买一次&quot;</span>);<br>      &#125;<br><br>      <span class="hljs-comment">// 2.2 为0，有购买资格，把下单资格保存到阻塞队列中</span><br>      <span class="hljs-comment">//  保存到阻塞队列</span><br>      <span class="hljs-type">VoucherOrder</span> <span class="hljs-variable">voucherOrder</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">VoucherOrder</span>();<br>      <span class="hljs-comment">// 2.3 订单id</span><br>      <span class="hljs-type">long</span> <span class="hljs-variable">orderId</span> <span class="hljs-operator">=</span> redisIdWork.nextId(<span class="hljs-string">&quot;order&quot;</span>);<br>      voucherOrder.setId(orderId);<br>      <span class="hljs-comment">// 2.4 用户id</span><br>      voucherOrder.setUserId(userId);<br>      <span class="hljs-comment">// 2.5 代金券id</span><br>      voucherOrder.setVoucherId(voucherId);<br><br>      <span class="hljs-comment">// 2.6 放入阻塞队列</span><br>      orderTasks.add(voucherOrder);<br><br>      <span class="hljs-comment">// 获取代理对象</span><br>      proxy = (IVoucherOrderService) AopContext.currentProxy();<br><br>      <span class="hljs-comment">// 3.返回订单id</span><br>      <span class="hljs-keyword">return</span> Result.ok(orderId);<br>  &#125;<br></code></pre></td></tr></table></figure></div>
+
+<ul>
+<li>在这里，已经对代理对象做了初始化</li>
+</ul>
+<h3 id="四、修改createVoucherOrder函数，注意，该函数使用范围依然在子线程之中"><a href="#四、修改createVoucherOrder函数，注意，该函数使用范围依然在子线程之中" class="headerlink" title="四、修改createVoucherOrder函数，注意，该函数使用范围依然在子线程之中"></a>四、修改createVoucherOrder函数，注意，该函数使用范围依然在子线程之中</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java">  <span class="hljs-meta">@Transactional</span>  <span class="hljs-comment">// Strong 加入事物管理</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">createVoucherOrder</span><span class="hljs-params">(VoucherOrder voucherOrder)</span> &#123;<br>        <span class="hljs-comment">// Strong 在这里进行一人一单的判断</span><br>        <span class="hljs-comment">// 查询用户id</span><br><span class="hljs-comment">//        Long userId = UserHolder.getUser().getId();</span><br>        <span class="hljs-type">Long</span> <span class="hljs-variable">userId</span> <span class="hljs-operator">=</span> voucherOrder.getUserId();<br>        <span class="hljs-type">Long</span> <span class="hljs-variable">voucherId</span> <span class="hljs-operator">=</span> voucherOrder.getVoucherId();<br><br>        <span class="hljs-comment">//synchronized (userId.toString().intern()) &#123;  // Strong 直接锁住id比起直接在方法上面加上锁效率要高 防止事物没有提交二发生线程安全问题，这里加锁就不合时宜了</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> query().eq(<span class="hljs-string">&quot;user_id&quot;</span>, userId).eq(<span class="hljs-string">&quot;voucher_id&quot;</span>, voucherId).count();<br>        <span class="hljs-comment">// 判断是否存在，也就是用户是否已经抢了订单</span><br>        <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">// 用户已经购买过了订单</span><br>            log.error(<span class="hljs-string">&quot;重复下单&quot;</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br><br>        <span class="hljs-comment">// 5.扣减库存  Strong 在这里使用乐观锁</span><br>        <span class="hljs-type">boolean</span> <span class="hljs-variable">success</span> <span class="hljs-operator">=</span> seckillVoucherService.update()<br>                .setSql(<span class="hljs-string">&quot;stock = stock - 1&quot;</span>)<br>                .eq(<span class="hljs-string">&quot;voucher_id&quot;</span>, voucherOrder.getVoucherId()).gt(<span class="hljs-string">&quot;stock&quot;</span>, <span class="hljs-number">0</span>)<span class="hljs-comment">// Strong 在这里进行判断数据库库存是否大于0</span><br>                .update();<br><br>        <span class="hljs-keyword">if</span> (!success) &#123;<br>            <span class="hljs-comment">// 扣减失败</span><br>            log.error(<span class="hljs-string">&quot;库存不足&quot;</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// Strong 将订单数据写入数据库</span><br>        save(voucherOrder);<br>    &#125;<br></code></pre></td></tr></table></figure></div>
+
+<h3 id="五、基本总结"><a href="#五、基本总结" class="headerlink" title="五、基本总结"></a>五、基本总结</h3><ul>
+<li><p>基本思路</p>
+<ul>
+<li>1、先利用Redis完成库存余量，一人一单判断，完成抢单业务</li>
+<li>再将下单业务放入阻塞队列，利用独立线程异步下单</li>
+</ul>
+</li>
+<li><p>基于阻塞队列的异步秒杀存在哪些问题</p>
+<ul>
+<li>内存限制问题</li>
+<li>数据安全问题</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 03 基于阻塞对列实现秒杀异步下单（*）</li>
+        <li><strong>作者:</strong> xkxk1212</li>
+        <li><strong>创建于:</strong> 2023-09-30 15:50:01</li>
+        
+            <li>
+                <strong>更新于:</strong> 2023-09-30 16:51:19
+            </li>
+        
+        <li>
+            <strong>链接:</strong> http://example.com/2023/09/30/黑马点评项目/04 秒杀优化/03 基于阻塞队列实现秒杀异步下单/
+        </li>
+        <li>
+            <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2023/09/30/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/05%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/01%20%E8%AE%A4%E8%AF%86%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%BB%A5%E5%8F%8A%E4%B8%A4%E7%A7%8D%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%BB%8B%E7%BB%8D/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">01 认识消息队列</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/09/30/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/04%20%E7%A7%92%E6%9D%80%E4%BC%98%E5%8C%96/02%20%E5%9F%BA%E4%BA%8ERedis%E5%AE%8C%E6%88%90%E7%A7%92%E6%9D%80%E8%B5%84%E6%A0%BC%E5%88%A4%E6%96%AD/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">02 基于Redis完成秒杀资格判断</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container">
+                <div class="comments-container pjax">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-swup-reload-script>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">03 基于阻塞对列实现秒杀异步下单（*）</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A6%96%E5%85%88%E5%9C%A8%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E9%87%8C%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%BB%A5%E5%8F%8A%E7%BA%BF%E7%A8%8B%E4%BB%BB%E5%8A%A1"><span class="nav-text">一、首先在成员变量里创建线程池以及线程任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%88%9B%E5%BB%BA%E7%94%A8%E4%BA%8E%E5%AF%B9%E8%AE%A2%E5%8D%95%E8%BF%9B%E8%A1%8C%E5%A4%84%E7%90%86%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">二、创建用于对订单进行处理的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%B8%BB%E8%A6%81%E4%B8%9A%E5%8A%A1%E4%BB%A3%E7%A0%81"><span class="nav-text">三、主要业务代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BF%AE%E6%94%B9createVoucherOrder%E5%87%BD%E6%95%B0%EF%BC%8C%E6%B3%A8%E6%84%8F%EF%BC%8C%E8%AF%A5%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%E8%8C%83%E5%9B%B4%E4%BE%9D%E7%84%B6%E5%9C%A8%E5%AD%90%E7%BA%BF%E7%A8%8B%E4%B9%8B%E4%B8%AD"><span class="nav-text">四、修改createVoucherOrder函数，注意，该函数使用范围依然在子线程之中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%9F%BA%E6%9C%AC%E6%80%BB%E7%BB%93"><span class="nav-text">五、基本总结</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">xkxk1212</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
+                <br>
+            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.3.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+        ],
+        containers: ["#swup"],
+    });
+
+    swup.on("pageView", () => {
+        Global.refresh();
+    });
+
+    // if (document.readyState === "complete") {
+    //
+    // } else {
+    //     document.addEventListener("DOMContentLoaded", () => init());
+    // }
+</script>
+
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+<script src="/js/layouts/categoryList.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+</body>
+</html>
