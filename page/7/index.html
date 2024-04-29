@@ -263,7 +263,7 @@
                         <div class="label">分类</div>
                     </a>
                     <a class="item" href="/archives">
-                        <div class="number">69</div>
+                        <div class="number">70</div>
                         <div class="label">文章</div>
                     </a>
                 </div>
@@ -280,6 +280,75 @@
                 
                     <div class="home-content-container">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/09/23/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/04%20redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E8%AF%AF%E5%88%A0%E9%97%AE%E9%A2%98/">
+                        04 redis分布式锁误删问题
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        一、基于redis分布式锁的一些问题
+二、通过线程id判断是否是自己的锁来达到正常释放锁的效果
+三、流程图
+四、解决该问题的需求分析
+需求：修改之前的分布式锁的实现应满足：
+1、在获取锁时存入线程标识（可以用uuid表示）
+2、在释放锁时先获取锁中的...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Sep 23 2023 10:29:29 GMT+0800">
+                
+                    2023-09-23
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">分布式锁</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2023/09/23/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/04%20redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E8%AF%AF%E5%88%A0%E9%97%AE%E9%A2%98/">阅读全文<span class="seo-reader-text">04 redis分布式锁误删问题</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
         
             <li class="home-article-item">
 
@@ -554,70 +623,6 @@ ps：比起以前一个jvm拥有一个锁监视器，分布式将多个jvm共用
 
             </li>
         
-            <li class="home-article-item">
-
-                
-
-                
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/09/21/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/02%20%E4%BC%98%E6%83%A0%E5%88%B8%E7%A7%92%E6%9D%80/05%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%BA%BA%E4%B8%80%E5%8D%95%E5%8A%9F%E8%83%BD/">
-                        实现一人一单问题
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        一、一人一单流程图二、代码实现
-1、封装专门用于处理创建优惠券订单的函数（该函数需要在接口中定义）1234567891011121314151617181920212223242526272829303132333435363738394041424...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Sep 21 2023 17:55:02 GMT+0800">
-                
-                    2023-09-21
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/">黑马点评项目</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/%E4%BC%98%E6%83%A0%E5%88%B8%E7%A7%92%E6%9D%80/">优惠券秒杀</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-    </div>
-
-    <a href="/2023/09/21/%E9%BB%91%E9%A9%AC%E7%82%B9%E8%AF%84%E9%A1%B9%E7%9B%AE/02%20%E4%BC%98%E6%83%A0%E5%88%B8%E7%A7%92%E6%9D%80/05%20%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%BA%BA%E4%B8%80%E5%8D%95%E5%8A%9F%E8%83%BD/">阅读全文<span class="seo-reader-text">实现一人一单问题</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
     </ul>
 
     <div class="home-paginator">
@@ -646,7 +651,7 @@ ps：比起以前一个jvm拥有一个锁监视器，分布式将多个jvm共用
               <span>2022</span>
               -
             
-            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">xkxk1212</a>
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">xkxk1212</a>
         </div>
         
             <script data-swup-reload-script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
