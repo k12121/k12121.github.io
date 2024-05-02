@@ -18,19 +18,19 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="一、@Autowired和@Resource来自何方？​	@Autowired这个注解是spring里面的，而@Resource注解则来自于java本身 二、在使用上有什么区别呢？首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下： 使用@">
+        <meta name="description" content="一、@Autowired和@Resource来自何方？ @Autowired这个注解是spring里面的，而@Resource注解则来自于java本身 	  二、它们有什么区别呢？ 首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下： 使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java后端中，Autowired注解和Resource注解区别">
 <meta property="og:url" content="http://example.com/2024/04/30/%E9%9A%8F%E7%AC%94/@Autowired%E5%92%8C@Resource%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="我有一个梦想......">
-<meta property="og:description" content="一、@Autowired和@Resource来自何方？​	@Autowired这个注解是spring里面的，而@Resource注解则来自于java本身 二、在使用上有什么区别呢？首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下： 使用@">
+<meta property="og:description" content="一、@Autowired和@Resource来自何方？ @Autowired这个注解是spring里面的，而@Resource注解则来自于java本身 	  二、它们有什么区别呢？ 首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下： 使用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20240430204213616.png">
 <meta property="og:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20240430204738335.png">
 <meta property="og:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20240430204825982.png">
 <meta property="og:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20240430214030273.png">
 <meta property="article:published_time" content="2024-04-30T12:06:49.528Z">
-<meta property="article:modified_time" content="2024-05-02T10:10:03.524Z">
+<meta property="article:modified_time" content="2024-05-02T10:24:04.596Z">
 <meta property="article:author" content="xkxk1212">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20240430204213616.png">
@@ -236,8 +236,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-05-02 18:10:03</span>
-            <span class="mobile">2024-05-02 18:10:03</span>
+            <span class="desktop">2024-05-02 18:24:04</span>
+            <span class="mobile">2024-05-02 18:24:04</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -277,8 +277,12 @@
         
 
         <div class="article-content markdown-body">
-            <h4 id="一、-Autowired和-Resource来自何方？"><a href="#一、-Autowired和-Resource来自何方？" class="headerlink" title="一、@Autowired和@Resource来自何方？"></a>一、@Autowired和@Resource来自何方？</h4><p>​	@Autowired这个注解是spring里面的，而@Resource注解则来自于java本身</p>
-<h4 id="二、在使用上有什么区别呢？"><a href="#二、在使用上有什么区别呢？" class="headerlink" title="二、在使用上有什么区别呢？"></a>二、在使用上有什么区别呢？</h4><h5 id="首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下："><a href="#首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下：" class="headerlink" title="首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下："></a>首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下：</h5><p><img  
+            <div class="note-large blue"><div class="notel-title"><p>一、@Autowired和@Resource来自何方？</p>
+</div><div class="notel-content"><p>@Autowired这个注解是spring里面的，而@Resource注解则来自于java本身</p>
+</div></div>	
+
+<div class="note-large blue"><div class="notel-title"><p>二、它们有什么区别呢？</p>
+</div><div class="notel-content"><h5 id="首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下："><a href="#首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下：" class="headerlink" title="首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下："></a>首先，我们可以设置一个场景，声明一个service层的接口，对应多个接口实现类（这里用两个），DemoServiceImpl1和DemoServiceImpl2都实现了IDemoService接口，类图关系如下：</h5><p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20240430204213616.png"
@@ -298,7 +302,9 @@
                      data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20240430204825982.png"
                       alt="image-20240430204825982"
                 ></p>
-<h6 id="为什么使用-Autowired注解注入，会出现这种问题呢？"><a href="#为什么使用-Autowired注解注入，会出现这种问题呢？" class="headerlink" title="为什么使用@Autowired注解注入，会出现这种问题呢？"></a>为什么使用@Autowired注解注入，会出现这种问题呢？</h6><p>因为@Autowired注解首先是根据类型寻找相应的bean的，如果同类型bean有有多个，那么在运行项目的时候就会抛出异常，那么如何解决呢？</p>
+<h6 id="为什么使用-Autowired注解注入，会出现这种问题呢？"><a href="#为什么使用-Autowired注解注入，会出现这种问题呢？" class="headerlink" title="为什么使用@Autowired注解注入，会出现这种问题呢？"></a>为什么使用@Autowired注解注入，会出现这种问题呢？</h6><div class="note primary"><p>因为@Autowired注解首先是根据类型寻找相应的bean的，如果同类型bean有有多个，那么在运行项目的时候就会抛出异常，那么如何解决呢？</p>
+</div>
+
 <h6 id="解决方案1：通过类名称入手"><a href="#解决方案1：通过类名称入手" class="headerlink" title="解决方案1：通过类名称入手"></a>解决方案1：通过类名称入手</h6><p>因为@Autowired在发现有多个同类型的bean的时候，不会马上抛出异常，而是会再通过名称寻找相应的bean,而默认下，会通过属性名称查找，也就是假设是private IDemoService demoServiceImpl;那么就它就会通过demoServiceImpl这个名称进行寻找，找不到就会抛出异常，所以可以把代码改成这样：</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> IDemoService demoServiceImpl1;<br></code></pre></td></tr></table></figure></div>
 
@@ -321,7 +327,9 @@
                      data-src="https://typora-blogxkxk.oss-cn-chengdu.aliyuncs.com/image-20240430214030273.png"
                       alt="image-20240430214030273"
                 ></p>
-<h6 id="为什么使用-Resource注解注入，项目也会报错呢？"><a href="#为什么使用-Resource注解注入，项目也会报错呢？" class="headerlink" title="为什么使用@Resource注解注入，项目也会报错呢？"></a>为什么使用@Resource注解注入，项目也会报错呢？</h6><p>实际上，@Resource注解首先会通过名称查找bean，在这里，代码是：” private IDemoService demoServiceImpl;“，它就会按照demoServiceImpl名称查找bean,这时候我我们bean没有叫做demoServiceImpl的，因为它们一个叫demoServiceImpl1，一个叫demoServiceImpl2，通过名字找不到，就只有通过类型找了，但是应为同类型有两个bean,这时候就报错了。</p>
+<h6 id="为什么使用-Resource注解注入，项目也会报错呢？"><a href="#为什么使用-Resource注解注入，项目也会报错呢？" class="headerlink" title="为什么使用@Resource注解注入，项目也会报错呢？"></a>为什么使用@Resource注解注入，项目也会报错呢？</h6><div class="note primary"><p>实际上，@Resource注解首先会通过名称查找bean，在这里，代码是：” private IDemoService demoServiceImpl;“，它就会按照demoServiceImpl名称查找bean,这时候我我们bean没有叫做demoServiceImpl的，因为它们一个叫demoServiceImpl1，一个叫demoServiceImpl2，通过名字找不到，就只有通过类型找了，但是应为同类型有两个bean,这时候就报错了。</p>
+</div>
+
 <h6 id="怎样解决呢？"><a href="#怎样解决呢？" class="headerlink" title="怎样解决呢？"></a>怎样解决呢？</h6><p>实际上，解决跟上面差不多，可以直接指定名称，通过@Service注解指定bean的名称。</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service(&quot;demoServiceImpl&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DemoServiceImpl1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">IDemoService</span> &#123;<br>&#125;<br></code></pre></td></tr></table></figure></div>
 
@@ -329,6 +337,8 @@
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Resource</span><br><span class="hljs-keyword">private</span> IDemoService demoServiceImpl1;<br></code></pre></td></tr></table></figure></div>
 
 <p>这两种方法都可以解决@Resource找不到bean的问题。</p>
+</div></div>
+
 
         </div>
 
@@ -341,7 +351,7 @@
         <li><strong>创建于:</strong> 2024-04-30 20:06:49</li>
         
             <li>
-                <strong>更新于:</strong> 2024-05-02 18:10:03
+                <strong>更新于:</strong> 2024-05-02 18:24:04
             </li>
         
         <li>
